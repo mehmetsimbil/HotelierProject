@@ -1,4 +1,6 @@
 ﻿using AutoMapper;
+using Business.Requests.Staff;
+using Business.Responses.Staff;
 using DataAccess.UnitOfWork;
 using HotelProject.Business.Abstracts;
 using HotelProject.Business.Requests.Staff;
@@ -33,6 +35,13 @@ namespace HotelProject.Business.Concretes
             Staff deletedStaff = _unitOfWork.StaffDal.Delete(staffToDelete!);
             var response = _mapper.Map<DeleteStaffResponse>(deletedStaff);
             _unitOfWork.Save();
+            return response;
+        }
+
+        public GetStaffByIdResponse GetById(GetStaffByIdRequest request)
+        {
+            Staff? staff = _unitOfWork.StaffDal.Get(predicate: s=> s.Id==request.Id);
+            var response = _mapper.Map<GetStaffByIdResponse>(staff);
             return response;
         }
 

@@ -2,12 +2,11 @@
 {
     public class AddAboutRequest
     {
-        public AddAboutRequest(string? title1,
-            string? title2,
-            string? content,
-            int roomCount,
-            int staffCount,
-            int customerCount)
+        public AddAboutRequest()
+        {
+            
+        }
+        public AddAboutRequest(string? title1, string? title2, string? content, int roomCount, int staffCount, int customerCount)
         {
             Title1 = title1;
             Title2 = title2;

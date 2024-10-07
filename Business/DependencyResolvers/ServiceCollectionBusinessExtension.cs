@@ -1,4 +1,5 @@
 ﻿using Business.Concretes;
+using DataAccess.UnitOfWork;
 using HotelProject.Business.Abstracts;
 using HotelProject.Business.Concretes;
 using HotelProject.DataAccess.Abstracts;
@@ -46,6 +47,7 @@ namespace Business.DependencyResolvers
                 .AddScoped<IUserDal, EfUserDal>()
                 .AddScoped<IWorkLocationService, WorkLocationManager>()
                 .AddScoped<IWorkLocationDal, EfWorkLocationDal>()
+                .AddScoped<IUnitOfWork, UnitOfWork>()
                 .AddAutoMapper(Assembly.GetExecutingAssembly());
 
             services.AddDbContext<HotelContext>(

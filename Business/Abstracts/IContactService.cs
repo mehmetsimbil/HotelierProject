@@ -1,4 +1,6 @@
-﻿using HotelProject.Business.Requests.Contact;
+﻿using Business.Requests.Contact;
+using Business.Responses.Contact;
+using HotelProject.Business.Requests.Contact;
 using HotelProject.Business.Responses.Contact;
 
 namespace HotelProject.Business.Abstracts
@@ -9,5 +11,6 @@ namespace HotelProject.Business.Abstracts
         public GetContactListResponse GetList(GetContactListRequest request);
         public UpdateContactResponse Update(UpdateContactRequest request);
         public DeleteContactResponse Delete(DeleteContactRequest request);
+        public GetContactByIdResponse GetById(GetContactByIdRequest request);
     }
 }

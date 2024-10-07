@@ -1,0 +1,32 @@
+﻿@using HotelProject.Business.Responses.Contact
+@using HotelProject.Entities.Dto_s.ContactDto
+
+@model HotelProject.Business.Requests.Contact.UpdateContactRequest
+
+@{
+    Layout = "_Layout";
+}
+
+<form method="post" action="@Url.Action("UpdateContact", "Contact")" enctype="multipart/form-data">
+    <div class="input-group flex-nowrap">
+        <input type="hidden" class="form-control" value="@Model.Id" name="Id" id="Id" aria-label="Id">
+    </div>
+    <div class="input-group flex-nowrap">
+        <input type="text" class="form-control" name="Name" id="Name" value="@Model.Name" placeholder="Name" aria-label="Name">
+    </div>
+    <div class="input-group flex-nowrap">
+        <input type="text" class="form-control" name="Mail" id="Mail" value="@Model.Mail" placeholder="Mail" aria-label="Mail" />
+    </div>
+    <div class="input-group flex-nowrap">
+        <input type="text" class="form-control" name="Subject" id="Subject" value="@Model.Subject" placeholder="Subject" aria-label="Subject">
+    </div>
+    <div class="input-group flex-nowrap">
+        <input type="text" class="form-control" name="Message" id="Message" value="@Model.Message" placeholder="Message" aria-label="Message">
+    </div>
+    <div class="input-group flex-nowrap">
+        <input type="number" class="form-control" name="MessageCategoryID" id="MessageCategoryID" value="@Model.MessageCategoryID" placeholder="MessageCategoryID" aria-label="MessageCategoryID">
+    </div>
+    
+
+    <button type="submit" class="btn btn-primary">Update</button>
+</form>

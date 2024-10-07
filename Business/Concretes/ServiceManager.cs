@@ -1,4 +1,6 @@
 ﻿using AutoMapper;
+using Business.Requests.Service;
+using Business.Responses.Service;
 using DataAccess.UnitOfWork;
 using HotelProject.Business.Abstracts;
 using HotelProject.Business.Requests.Service;
@@ -33,6 +35,13 @@ namespace HotelProject.Business.Concretes
             Service deletedService = _unitOfWork.ServiceDal.Delete(serviceToDelete!);
             var response = _mapper.Map<DeleteServiceResponse>(deletedService);
             _unitOfWork.Save();
+            return response;
+        }
+
+        public GetServiceByIdResponse GetById(GetServiceByIdRequest request)
+        {
+            Service? service = _unitOfWork.ServiceDal.Get(predicate:s=>s.Id==request.Id);
+            var response = _mapper.Map<GetServiceByIdResponse>(service);
             return response;
         }
 

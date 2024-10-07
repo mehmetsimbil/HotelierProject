@@ -1,4 +1,6 @@
-﻿using HotelProject.Business.Requests.Booking;
+﻿using Business.Requests.Booking;
+using Business.Responses.Booking;
+using HotelProject.Business.Requests.Booking;
 using HotelProject.Business.Responses.Booking;
 
 namespace HotelProject.Business.Abstracts
@@ -9,5 +11,6 @@ namespace HotelProject.Business.Abstracts
         public GetBookingListResponse GetList(GetBookingListRequest request);
         public UpdateBookingResponse Update(UpdateBookingRequest request);
         public DeleteBookingResponse Delete(DeleteBookingRequest request);
+        public GetBookingByIdResponse GetById(GetBookingByIdRequest request);
     }
 }

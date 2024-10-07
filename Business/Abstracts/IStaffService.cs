@@ -1,4 +1,6 @@
-﻿using HotelProject.Business.Requests.Staff;
+﻿using Business.Requests.Staff;
+using Business.Responses.Staff;
+using HotelProject.Business.Requests.Staff;
 using HotelProject.Business.Responses.Staff;
 
 namespace HotelProject.Business.Abstracts
@@ -9,5 +11,6 @@ namespace HotelProject.Business.Abstracts
         public GetStaffListResponse GetList(GetStaffListRequest request);
         public UpdateStaffResponse Update(UpdateStaffRequest request);
         public DeleteStaffResponse Delete(DeleteStaffRequest request);
+        public GetStaffByIdResponse GetById(GetStaffByIdRequest request);
     }
 }

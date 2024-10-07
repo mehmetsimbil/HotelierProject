@@ -1,0 +1,53 @@
+﻿@using HotelProject.Business.Responses.Booking
+@using HotelProject.Entities.Dto_s.BookingDto
+
+@model HotelProject.Business.Requests.Booking.UpdateBookingRequest
+
+@{
+    Layout = "_Layout";
+}
+
+<form method="post" action="@Url.Action("UpdateBooking", "Booking")" enctype="multipart/form-data">
+    <div class="input-group flex-nowrap">
+        <input type="hidden" class="form-control" value="@Model.Id" name="Id" id="Id" aria-label="Id">
+    </div>
+    <div class="input-group flex-nowrap">
+        <input type="text" class="form-control" name="Name" id="Name" value="@Model.Name" placeholder="Name" aria-label="Name">
+    </div>
+    <div class="input-group flex-nowrap">
+        <input type="text" class="form-control" name="Mail" id="Mail" value="@Model.Mail" placeholder="Mail" aria-label="Mail" />
+    </div>
+    <div class="input-group flex-nowrap">
+        <input type="datetime" class="form-control" name="CheckIn" id="CheckIn" value="@Model.CheckIn" placeholder="CheckIn" aria-label="CheckIn">
+    </div>
+    <div class="input-group flex-nowrap">
+        <input type="datetime" class="form-control" name="CheckOut" id="CheckOut" value="@Model.CheckOut" placeholder="CheckOut" aria-label="CheckOut">
+    </div>
+    <div class="input-group flex-nowrap">
+        <input type="text" class="form-control" name="AdultCount" id="AdultCount" value="@Model.AdultCount" placeholder="AdultCount" aria-label="AdultCount">
+    </div>
+    <div class="input-group flex-nowrap">
+        <input type="text" class="form-control" name="ChildrenCount" id="ChildrenCount" value="@Model.ChildrenCount" placeholder="ChildrenCount" aria-label="ChildrenCount">
+    </div>
+    <div class="input-group flex-nowrap">
+        <input type="text" class="form-control" name="RoomCount" id="RoomCount" value="@Model.RoomCount" placeholder="RoomCount" aria-label="RoomCount">
+    </div>
+    <div class="input-group flex-nowrap">
+        <input type="text" class="form-control" name="SpecialRequest" id="SpecialRequest" value="@Model.SpecialRequest" placeholder="SpecialRequest" aria-label="SpecialRequest">
+    </div>
+    <div class="input-group flex-nowrap">
+        <input type="text" class="form-control" name="Description" id="Description" value="@Model.Description" placeholder="Description" aria-label="Description">
+    </div>
+    <div class="input-group flex-nowrap">
+        <input type="text" class="form-control" name="Status" id="Status" value="@Model.Status" placeholder="Status" aria-label="Status">
+    </div>
+    <div class="input-group flex-nowrap">
+        <input type="text" class="form-control" name="City" id="City" value="@Model.City" placeholder="City" aria-label="City">
+    </div>
+    <div class="input-group flex-nowrap">
+        <input type="text" class="form-control" name="Country" id="Country" value="@Model.Country" placeholder="Country" aria-label="Country">
+    </div>
+
+
+    <button type="submit" class="btn btn-primary">Update</button>
+</form>

@@ -1,4 +1,6 @@
 ﻿using AutoMapper;
+using Business.Requests.Booking;
+using Business.Responses.Booking;
 using DataAccess.UnitOfWork;
 using HotelProject.Business.Abstracts;
 using HotelProject.Business.Requests.Booking;
@@ -31,9 +33,24 @@ namespace HotelProject.Business.Concretes
         public DeleteBookingResponse Delete(DeleteBookingRequest request)
         {
             Booking? bookingToDelete = _unitOfWork.BookingDal.Get(predicate: a => a.Id == request.Id);
-            Booking deletedBooking = _unitOfWork.BookingDal.Delete(bookingToDelete!);
+            if (bookingToDelete == null)
+            {
+                throw new KeyNotFoundException($"No About found with ID {request.Id}");
+            }
+
+
+            bookingToDelete.IsDeleted = true;
+
+            Booking deletedBooking = _unitOfWork.BookingDal.Update(bookingToDelete!);
             var response = _mapper.Map<DeleteBookingResponse>(deletedBooking);
             _unitOfWork.Save();
+            return response;
+        }
+
+        public GetBookingByIdResponse GetById(GetBookingByIdRequest request)
+        {
+            Booking? booking = _unitOfWork.BookingDal.Get(predicate: b=>b.Id == request.Id);
+            var response = _mapper.Map<GetBookingByIdResponse>(booking);
             return response;
         }
 

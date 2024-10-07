@@ -1,4 +1,6 @@
 ﻿using AutoMapper;
+using Business.Requests.User;
+using Business.Responses.User;
 using DataAccess.UnitOfWork;
 using HotelProject.Business.Abstracts;
 using HotelProject.Business.Requests.User;
@@ -34,6 +36,13 @@ namespace Business.Concretes
             User deletedUser = _unitOfWork.UserDal.Delete(userToDelete!);
             var response = _mapper.Map<DeleteUserResponse>(deletedUser);
             _unitOfWork.Save();
+            return response;
+        }
+
+        public GetUserByIdResponse GetById(GetUserByIdRequest request)
+        {
+            User? user = _unitOfWork.UserDal.Get(predicate: u=>u.Id == request.Id);
+            var response = _mapper.Map<GetUserByIdResponse>(user);
             return response;
         }
 

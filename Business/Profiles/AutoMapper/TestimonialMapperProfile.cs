@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Business.Responses.Testimonial;
 using HotelProject.Business.Requests.Testimonial;
 using HotelProject.Business.Responses.Testimonial;
 using HotelProject.Entities.Concrete;
@@ -20,6 +21,7 @@ namespace HotelProject.Business.Profiles.AutoMapper
             CreateMap<Testimonial,UpdateTestimonialResponse>();
 
             CreateMap<Testimonial, DeleteTestimonialResponse>();
+            CreateMap<Testimonial,GetTestimonialByIdResponse>();
         }
     }
 }

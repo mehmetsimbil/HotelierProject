@@ -1,4 +1,6 @@
-﻿using HotelProject.Business.Requests.Testimonial;
+﻿using Business.Requests.Testimonial;
+using Business.Responses.Testimonial;
+using HotelProject.Business.Requests.Testimonial;
 using HotelProject.Business.Responses.Testimonial;
 
 namespace HotelProject.Business.Abstracts
@@ -9,5 +11,6 @@ namespace HotelProject.Business.Abstracts
         public GetTestimonialListResponse GetList(GetTestimonialListRequest request);
         public UpdateTestimonialResponse Update(UpdateTestimonialRequest request);
         public DeleteTestimonialResponse Delete(DeleteTestimonialRequest request);
+        public GetTestimonialByIdResponse GetById(GetTestimonialByIdRequest request);
     }
 }

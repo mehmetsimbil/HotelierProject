@@ -1,4 +1,6 @@
-﻿using HotelProject.Business.Requests.Service;
+﻿using Business.Requests.Service;
+using Business.Responses.Service;
+using HotelProject.Business.Requests.Service;
 using HotelProject.Business.Responses.Service;
 
 namespace HotelProject.Business.Abstracts
@@ -9,5 +11,6 @@ namespace HotelProject.Business.Abstracts
         public GetServiceListResponse GetList(GetServiceListRequest request);
         public UpdateServiceResponse Update(UpdateServiceRequest request);
         public DeleteServiceResponse Delete(DeleteServiceRequest request);
+        public GetServiceByIdResponse GetById(GetServiceByIdRequest request);
     }
 }

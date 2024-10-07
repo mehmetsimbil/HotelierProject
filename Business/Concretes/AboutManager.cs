@@ -1,4 +1,6 @@
 ﻿using AutoMapper;
+using Business.Requests.About;
+using Business.Responses.About;
 using DataAccess.UnitOfWork;
 using HotelProject.Business.Abstracts;
 using HotelProject.Business.Requests.About;
@@ -31,15 +33,34 @@ namespace HotelProject.Business.Concretes
         public DeleteAboutResponse Delete(DeleteAboutRequest request)
         {
             About? aboutToDelete = _unitOfWork.AboutDal.Get(predicate: a => a.Id == request.Id);
-            About deletedAbout = _unitOfWork.AboutDal.Delete(aboutToDelete!);
-            var response = _mapper.Map<DeleteAboutResponse>(deletedAbout);
+
+            if (aboutToDelete == null)
+            {
+                throw new KeyNotFoundException($"No About found with ID {request.Id}");
+            }
+
+            
+            aboutToDelete.IsDeleted = true;
+
+           
+            About updatedAbout = _unitOfWork.AboutDal.Update(aboutToDelete);
+            var response = _mapper.Map<DeleteAboutResponse>(updatedAbout);
             _unitOfWork.Save();
+
             return response;
+        }
+
+
+        public GetAboutByIdResponse GetById(GetAboutByIdRequest request)
+        {
+           About? about = _unitOfWork.AboutDal.Get(predicate:a=> a.Id == request.Id);
+            var response = _mapper.Map<GetAboutByIdResponse>(about);
+            return response;    
         }
 
         public GetAboutListResponse GetList(GetAboutListRequest request)
         {
-            IList<About> abouts = _unitOfWork.AboutDal.GetList();
+            IList<About> abouts = _unitOfWork.AboutDal.GetList(predicate:a=>a.IsDeleted==false);
             GetAboutListResponse response = _mapper.Map<GetAboutListResponse>(abouts);
             return response;
         }

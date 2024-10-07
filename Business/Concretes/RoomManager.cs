@@ -1,4 +1,6 @@
 ﻿using AutoMapper;
+using Business.Requests.Room;
+using Business.Responses.Room;
 using DataAccess.UnitOfWork;
 using HotelProject.Business.Abstracts;
 using HotelProject.Business.Requests.Room;
@@ -33,6 +35,13 @@ namespace HotelProject.Business.Concretes
             Room deletedRoom = _unitOfWork.RoomDal.Delete(roomToDelete!);
             var response = _mapper.Map<DeleteRoomResponse>(deletedRoom);
             _unitOfWork.Save();
+            return response;
+        }
+
+        public GetRoomByIdResponse GetById(GetRoomByIdRequest request)
+        {
+            Room? room = _unitOfWork.RoomDal.Get(predicate:  r=>r.Id == request.Id);
+            var response = _mapper.Map<GetRoomByIdResponse>(room);
             return response;
         }
 

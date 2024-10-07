@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Business.Responses.Room;
 using HotelProject.Business.Requests.Room;
 using HotelProject.Business.Responses.Room;
 using HotelProject.Entities.Concrete;
@@ -18,6 +19,7 @@ namespace HotelProject.Business.Profiles.AutoMapper
             CreateMap<UpdateRoomRequest, Room>();
             CreateMap< Room,UpdateRoomResponse > ();
             CreateMap<Room,DeleteRoomResponse> ();
+            CreateMap<Room,GetRoomByIdResponse> ();
 
         }
     }

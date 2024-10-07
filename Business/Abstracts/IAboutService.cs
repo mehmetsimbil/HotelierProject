@@ -1,4 +1,6 @@
-﻿using HotelProject.Business.Requests.About;
+﻿using Business.Requests.About;
+using Business.Responses.About;
+using HotelProject.Business.Requests.About;
 using HotelProject.Business.Responses.About;
 
 namespace HotelProject.Business.Abstracts
@@ -9,5 +11,6 @@ namespace HotelProject.Business.Abstracts
         public GetAboutListResponse GetList(GetAboutListRequest request);
         public UpdateAboutResponse Update(UpdateAboutRequest request);
         public DeleteAboutResponse Delete(DeleteAboutRequest request);
+        public GetAboutByIdResponse GetById(GetAboutByIdRequest request);
     }
 }

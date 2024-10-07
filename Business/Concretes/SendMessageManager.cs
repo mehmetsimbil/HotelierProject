@@ -1,4 +1,6 @@
 ﻿using AutoMapper;
+using Business.Requests.SendMessage;
+using Business.Responses.SendMessage;
 using DataAccess.UnitOfWork;
 using HotelProject.Business.Abstracts;
 using HotelProject.Business.Requests.SendMessage;
@@ -33,6 +35,13 @@ namespace HotelProject.Business.Concretes
             SendMessage deletedSendMessage = _unitOfWork.MessageSendDal.Delete(sendMessageToDelete!);
             var response = _mapper.Map<DeleteSendMessageResponse>(deletedSendMessage);
             _unitOfWork.Save();
+            return response;
+        }
+
+        public GetSendMessageByIdResponse GetById(GetSendMessageByIdRequest request)
+        {
+            SendMessage? sendMessage = _unitOfWork.MessageSendDal.Get(predicate:sm=> sm.Id==request.Id);
+            var response = _mapper.Map<GetSendMessageByIdResponse>(sendMessage);
             return response;
         }
 

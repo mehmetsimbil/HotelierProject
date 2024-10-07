@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Business.Responses.About;
 using HotelProject.Business.Requests.About;
 using HotelProject.Business.Responses.About;
 using HotelProject.Entities.Concrete;
@@ -17,8 +18,10 @@ namespace HotelProject.Business.Profiles.AutoMapper
                 .ForMember(dest => dest.Items,opt=> opt.MapFrom(src => src));
 
             CreateMap<About, DeleteAboutResponse>();
-            CreateMap<UpdateAboutRequest,About>();
+            CreateMap<UpdateAboutRequest,About>().ForMember(dest => dest.Id, opt => opt.Ignore()); ;
             CreateMap<About,UpdateAboutResponse>();
+
+            CreateMap<About, GetAboutByIdResponse>();
         }
     }
 }

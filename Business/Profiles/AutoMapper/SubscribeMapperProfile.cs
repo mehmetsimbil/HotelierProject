@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Business.Responses.Subscribe;
 using HotelProject.Business.Requests.Subscribe;
 using HotelProject.Business.Responses.Subscribe;
 using HotelProject.Entities.Concrete;
@@ -20,6 +21,7 @@ namespace HotelProject.Business.Profiles.AutoMapper
             CreateMap<Subscribe, UpdateSubscribeResponse>();
 
             CreateMap<Subscribe,DeleteSubscribeResponse>();
+            CreateMap<Subscribe,GetSubscribeByIdResponse>();
         }
     }
 }

@@ -1,4 +1,6 @@
-﻿using HotelProject.Business.Requests.SendMessage;
+﻿using Business.Requests.SendMessage;
+using Business.Responses.SendMessage;
+using HotelProject.Business.Requests.SendMessage;
 using HotelProject.Business.Responses.SendMessage;
 
 namespace HotelProject.Business.Abstracts
@@ -9,5 +11,6 @@ namespace HotelProject.Business.Abstracts
         public GetSendMessageListResponse GetList(GetSendMessageListRequest request);
         public DeleteSendMessageResponse Delete(DeleteSendMessageRequest request);
         public UpdateSendMessageResponse Update(UpdateSendMessageRequest request);
+        public GetSendMessageByIdResponse GetById(GetSendMessageByIdRequest request);
     }
 }

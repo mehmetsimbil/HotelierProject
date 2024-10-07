@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Business.Responses.Contact;
 using HotelProject.Business.Requests.Contact;
 using HotelProject.Business.Responses.Contact;
 using HotelProject.Entities.Concrete;
@@ -18,6 +19,7 @@ namespace HotelProject.Business.Profiles.AutoMapper
             CreateMap<Contact, DeleteContactResponse>();
             CreateMap<UpdateContactRequest, Contact>();
             CreateMap<Contact,UpdateContactResponse>();
+            CreateMap<Contact,GetContactByIdResponse>();
         }
     }
 }

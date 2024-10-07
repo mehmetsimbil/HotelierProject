@@ -1,0 +1,81 @@
+﻿@using HotelProject.Business.Responses.Booking
+@using HotelProject.Entities.Dto_s.BookingDto
+
+@model List<BookingListItemDto>
+@{
+    Layout = "_Layout";
+}
+
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Name</th>
+            <th scope="col">Mail</th>
+            <th scope="col">CheckIn</th>
+            <th scope="col">CheckOut</th>
+            <th scope="col">Adult Count</th>
+            <th scope="col">Children Count</th>
+            <th scope="col">Room Count</th>
+            <th scope="col">Special Request</th>
+            <th scope="col">Description</th>
+            <th scope="col">Status</th>
+            <th scope="col">City</th>
+            <th scope="col">Country</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <th scope="row" style="color:blue">
+                    @item.Id
+                </th>
+                <th scope="row" style="color:red">
+                    @item.Name
+                </th>
+                <th scope="row" style="color:red">
+                    @item.Mail
+                </th>
+                <th scope="row" style="color:red">
+                    @item.CheckIn
+                </th>
+                <th scope="row" style="color:red">
+                    @item.CheckOut
+                </th>
+                <th scope="row" style="color:red">
+                    @item.AdultCount
+                </th>
+                <th scope="row" style="color:red">
+                    @item.ChildrenCount
+                </th>
+                <th scope="row" style="color:red">
+                    @item.RoomCount
+                </th>
+                <th scope="row" style="color:red">
+                    @item.SpecialRequest
+                </th>
+                <th scope="row" style="color:red">
+                    @item.Description
+                </th>
+                <th scope="row" style="color:red">
+                    @item.Status
+                </th>
+                <th scope="row" style="color:red">
+                    @item.City
+                </th>
+                <th scope="row" style="color:red">
+                    @item.Country
+                </th>
+                <th>
+                    <a href="@Url.Action("GetById", "Booking", new { id = item.Id })" class="btn btn-success">Güncelle</a>
+                    <form method="post" action="@Url.Action("DeleteBooking", "About")" style="display:inline;">
+                        <input type="hidden" name="Id" value="@item.Id" />
+                        <button type="submit" class="btn btn-danger" onclick="return confirm('Bu kaydı silmek istediğinize emin misiniz?');">Sil</button>
+                    </form>
+                </th>
+            </tr>
+        }
+    </tbody>
+
+</table>

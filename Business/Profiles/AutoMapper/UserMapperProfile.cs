@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Business.Responses.User;
 using HotelProject.Business.Requests.User;
 using HotelProject.Business.Responses.User;
 using HotelProject.Entities.Concrete;
@@ -20,6 +21,7 @@ namespace HotelProject.Business.Profiles.AutoMapper
             CreateMap<User,UpdateUserResponse>();
 
             CreateMap<User, DeleteUserResponse>();
+            CreateMap<User,GetUserByIdResponse>();
         }
     }
 }

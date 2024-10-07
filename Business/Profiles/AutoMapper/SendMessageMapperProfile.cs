@@ -1,5 +1,5 @@
 ﻿using AutoMapper;
-
+using Business.Responses.SendMessage;
 using HotelProject.Business.Requests.SendMessage;
 using HotelProject.Business.Responses.SendMessage;
 using HotelProject.Entities.Concrete;
@@ -19,6 +19,7 @@ namespace HotelProject.Business.Profiles.AutoMapper
             CreateMap<UpdateSendMessageRequest, SendMessage>();
             CreateMap<SendMessage, UpdateSendMessageResponse>();
             CreateMap<SendMessage,DeleteSendMessageResponse>();
+            CreateMap<SendMessage, GetSendMessageByIdResponse>();
         }
     }
 }

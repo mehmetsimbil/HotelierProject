@@ -1,4 +1,6 @@
 ﻿using AutoMapper;
+using Business.Requests.Testimonial;
+using Business.Responses.Testimonial;
 using DataAccess.UnitOfWork;
 using HotelProject.Business.Abstracts;
 using HotelProject.Business.Requests.Testimonial;
@@ -33,6 +35,13 @@ namespace HotelProject.Business.Concretes
             Testimonial deletedTestimonial = _unitOfWork.TestimonialDal.Delete(testimonialToDelete!);
             var response = _mapper.Map<DeleteTestimonialResponse>(deletedTestimonial);
             _unitOfWork.Save();
+            return response;
+        }
+
+        public GetTestimonialByIdResponse GetById(GetTestimonialByIdRequest request)
+        {
+            Testimonial? testimonial = _unitOfWork.TestimonialDal.Get(predicate:  t=>t.Id == request.Id);
+            var response = _mapper.Map<GetTestimonialByIdResponse>(testimonial);
             return response;
         }
 

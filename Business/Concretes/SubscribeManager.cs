@@ -1,4 +1,6 @@
 ﻿using AutoMapper;
+using Business.Requests.Subscribe;
+using Business.Responses.Subscribe;
 using DataAccess.UnitOfWork;
 using HotelProject.Business.Abstracts;
 using HotelProject.Business.Requests.Subscribe;
@@ -33,6 +35,13 @@ namespace HotelProject.Business.Concretes
             Subscribe deletedSubscribe = _unitOfWork.SubscribeDal.Delete(subscribeToDelete!);
             var response = _mapper.Map<DeleteSubscribeResponse>(deletedSubscribe);
             _unitOfWork.Save();
+            return response;
+        }
+
+        public GetSubscribeByIdResponse GetById(GetSubscribeByIdRequest request)
+        {
+            Subscribe? subscribe = _unitOfWork.SubscribeDal.Get(predicate:  s=>s.Id == request.Id);
+            var response = _mapper.Map<GetSubscribeByIdResponse>(subscribe);
             return response;
         }
 

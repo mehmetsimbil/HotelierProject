@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Business.Responses.Staff;
 using HotelProject.Business.Requests.Staff;
 using HotelProject.Business.Responses.Staff;
 using HotelProject.Entities.Concrete;
@@ -17,6 +18,7 @@ namespace HotelProject.Business.Profiles.AutoMapper
             CreateMap<UpdateStaffRequest, Staff>();
             CreateMap<Staff, UpdateStaffResponse>();
             CreateMap<Staff, DeleteStaffResponse>();
+            CreateMap<Staff,GetStaffByIdResponse>();
         }
     }
 }

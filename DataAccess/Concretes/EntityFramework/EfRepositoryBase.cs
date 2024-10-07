@@ -38,11 +38,12 @@ namespace HotelProject.DataAccess.Concretes.EntityFramework
             return _context.Set<TEntity>().FirstOrDefault(predicate);
         }
 
-        
-
         public IList<TEntity> GetList(Func<TEntity, bool>? predicate = null)
         {
-            IEnumerable<TEntity> entities = _context.Set<TEntity>();
+            IQueryable<TEntity> entities = _context.Set<TEntity>();
+            if (predicate is not null)
+                entities = entities.Where(predicate).AsQueryable();
+
             return entities.ToList();
         }
 

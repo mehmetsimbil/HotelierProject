@@ -1,0 +1,57 @@
+﻿@using HotelProject.Business.Responses.Contact
+@using HotelProject.Entities.Dto_s.ContactDto
+
+@model List<ContactListItemDto>
+@{
+    Layout = "_Layout";
+}
+
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Name</th>
+            <th scope="col">Mail</th>
+            <th scope="col">Subject</th>
+            <th scope="col">Message</th>
+            <th scope="col">MessageCategoryID </th>
+            <th scope="col">MessageCategory</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <th scope="row" style="color:blue">
+                    @item.Id
+                </th>
+                <th scope="row" style="color:red">
+                    @item.Name
+                </th>
+                <th scope="row" style="color:red">
+                    @item.Mail
+                </th>
+                <th scope="row" style="color:red">
+                    @item.Subject
+                </th>
+                <th scope="row" style="color:red">
+                    @item.Message
+                </th>
+                <th scope="row" style="color:red">
+                    @item.MessageCategoryID
+                </th>
+                <th scope="row" style="color:red">
+                    @item.MessageCategory
+                </th>
+                <th>
+                    <a href="@Url.Action("GetById", "Contact", new { id = item.Id })" class="btn btn-success">Güncelle</a>
+                    <form method="post" action="@Url.Action("DeleteContact", "Contact")" style="display:inline;">
+                        <input type="hidden" name="Id" value="@item.Id" />
+                        <button type="submit" class="btn btn-danger" onclick="return confirm('Bu kaydı silmek istediğinize emin misiniz?');">Sil</button>
+                    </form>
+                </th>
+            </tr>
+        }
+    </tbody>
+
+</table>
