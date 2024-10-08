@@ -1,0 +1,58 @@
+﻿@using HotelProject.Business.Responses.Staff
+@using HotelProject.Entities.Dto_s.StaffDto
+
+@model List<StaffListItemDto>
+@{
+    Layout = "_Layout";
+}
+
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Title</th>
+            <th scope="col">Title</th>
+            <th scope="col">Content</th>
+            <th scope="col">Room Count</th>
+            <th scope="col">Staff Count</th>
+            <th scope="col">Customer Count</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <th scope="row" style="color:blue">
+                    @item.Id
+                </th>
+                <th scope="row" style="color:red">
+                    @item.Name
+                </th>
+                <th scope="row" style="color:red">
+                    @item.Title
+                </th>
+                <th scope="row" style="color:red">
+                    @item.Image
+                </th>
+                <th scope="row" style="color:red">
+                    @item.Github
+                </th>
+                <th scope="row" style="color:red">
+                    @item.Instagram
+                </th>
+                <th scope="row" style="color:red">
+                    @item.Linkedin
+                </th>
+                
+                <th>
+                    <a href="@Url.Action("GetById", "Staff", new { id = item.Id })" class="btn btn-success">Güncelle</a>
+                    <form method="post" action="@Url.Action("DeleteStaff", "Staff")" style="display:inline;">
+                        <input type="hidden" name="Id" value="@item.Id" />
+                        <button type="submit" class="btn btn-danger" onclick="return confirm('Bu kaydı silmek istediğinize emin misiniz?');">Sil</button>
+                    </form>
+                </th>
+            </tr>
+        }
+    </tbody>
+
+</table>

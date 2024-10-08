@@ -1,0 +1,65 @@
+﻿@using HotelProject.Business.Responses.User
+@using HotelProject.Entities.Dto_s.UserDto
+
+@model List<UserListItemDto>
+@{
+    Layout = "_Layout";
+}
+
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Name</th>
+            <th scope="col">Surname</th>
+            <th scope="col">City</th>
+            <th scope="col">Country</th>
+            <th scope="col">Gender</th>
+            <th scope="col">WorkDepartment</th>
+            <th scope="col">WorkLocationID</th>
+            <th scope="col">WorkLocation</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <th scope="row" style="color:blue">
+                    @item.Id
+                </th>
+                <th scope="row" style="color:red">
+                    @item.Name
+                </th>
+                <th scope="row" style="color:red">
+                    @item.Surname
+                </th>
+                <th scope="row" style="color:red">
+                    @item.City
+                </th>
+                <th scope="row" style="color:red">
+                    @item.Country
+                </th>
+                <th scope="row" style="color:red">
+                    @item.Gender
+                </th>
+                <th scope="row" style="color:red">
+                    @item.WorkDepartment
+                </th>
+                <th scope="row" style="color:red">
+                    @item.WorkLocationID
+                </th>
+                <th scope="row" style="color:red">
+                    @item.WorkLocation
+                </th>
+                <th>
+                    <a href="@Url.Action("GetById", "User", new { id = item.Id })" class="btn btn-success">Güncelle</a>
+                    <form method="post" action="@Url.Action("DeleteUser", "User")" style="display:inline;">
+                        <input type="hidden" name="Id" value="@item.Id" />
+                        <button type="submit" class="btn btn-danger" onclick="return confirm('Bu kaydı silmek istediğinize emin misiniz?');">Sil</button>
+                    </form>
+                </th>
+            </tr>
+        }
+    </tbody>
+
+</table>

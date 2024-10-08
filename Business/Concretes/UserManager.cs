@@ -33,6 +33,13 @@ namespace Business.Concretes
         public DeleteUserResponse Delete(DeleteUserRequest request)
         {
             User? userToDelete = _unitOfWork.UserDal.Get(predicate: u=> u.Id == request.Id);
+            if (userToDelete == null)
+            {
+                throw new KeyNotFoundException($"No About found with ID {request.Id}");
+            }
+
+
+            userToDelete.IsDeleted = true;
             User deletedUser = _unitOfWork.UserDal.Delete(userToDelete!);
             var response = _mapper.Map<DeleteUserResponse>(deletedUser);
             _unitOfWork.Save();

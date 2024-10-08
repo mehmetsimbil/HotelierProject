@@ -31,6 +31,13 @@ namespace HotelProject.Business.Concretes
         {
             MessageCategory? messageCategoryToDelete =
                 _unitOfWork.MessageCategoryDal.Get(predicate: mc => mc.Id == request.Id);
+            if (messageCategoryToDelete == null)
+            {
+                throw new KeyNotFoundException($"No About found with ID {request.Id}");
+            }
+
+
+            messageCategoryToDelete.IsDeleted = true;
             MessageCategory deletedMessageCategory = 
                 _unitOfWork.MessageCategoryDal.Delete(messageCategoryToDelete!);
             var response = _mapper.Map<DeleteMessageCategoryResponse>(deletedMessageCategory);

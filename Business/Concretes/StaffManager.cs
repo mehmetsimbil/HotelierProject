@@ -32,6 +32,13 @@ namespace HotelProject.Business.Concretes
         public DeleteStaffResponse Delete(DeleteStaffRequest request)
         {
             Staff? staffToDelete = _unitOfWork.StaffDal.Get(predicate:  s=> s.Id == request.Id);
+            if (staffToDelete == null)
+            {
+                throw new KeyNotFoundException($"No About found with ID {request.Id}");
+            }
+
+
+            staffToDelete.IsDeleted = true;
             Staff deletedStaff = _unitOfWork.StaffDal.Delete(staffToDelete!);
             var response = _mapper.Map<DeleteStaffResponse>(deletedStaff);
             _unitOfWork.Save();

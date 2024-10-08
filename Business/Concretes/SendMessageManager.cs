@@ -32,6 +32,13 @@ namespace HotelProject.Business.Concretes
         public DeleteSendMessageResponse Delete(DeleteSendMessageRequest request)
         {
             SendMessage? sendMessageToDelete = _unitOfWork.MessageSendDal.Get(predicate: g => g.Id == request.Id);
+            if (sendMessageToDelete == null)
+            {
+                throw new KeyNotFoundException($"No About found with ID {request.Id}");
+            }
+
+
+            sendMessageToDelete.IsDeleted = true;
             SendMessage deletedSendMessage = _unitOfWork.MessageSendDal.Delete(sendMessageToDelete!);
             var response = _mapper.Map<DeleteSendMessageResponse>(deletedSendMessage);
             _unitOfWork.Save();

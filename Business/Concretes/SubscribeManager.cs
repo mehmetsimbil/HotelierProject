@@ -32,6 +32,13 @@ namespace HotelProject.Business.Concretes
         public DeleteSubscribeResponse Delete(DeleteSubscribeRequest request)
         {
             Subscribe? subscribeToDelete = _unitOfWork.SubscribeDal.Get(predicate:s=>s.Id == request.Id);
+            if (subscribeToDelete == null)
+            {
+                throw new KeyNotFoundException($"No About found with ID {request.Id}");
+            }
+
+
+            subscribeToDelete.IsDeleted = true;
             Subscribe deletedSubscribe = _unitOfWork.SubscribeDal.Delete(subscribeToDelete!);
             var response = _mapper.Map<DeleteSubscribeResponse>(deletedSubscribe);
             _unitOfWork.Save();

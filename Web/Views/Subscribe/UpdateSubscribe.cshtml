@@ -1,0 +1,19 @@
+﻿@using HotelProject.Business.Responses.Subscribe
+@using HotelProject.Entities.Dto_s.SubscribeDto
+
+@model HotelProject.Business.Requests.Subscribe.UpdateSubscribeRequest
+
+@{
+    Layout = "_Layout";
+}
+
+<form method="post" action="@Url.Action("UpdateService", "Service")" enctype="multipart/form-data">
+    <div class="input-group flex-nowrap">
+        <input type="hidden" class="form-control" value="@Model.Id" name="Id" id="Id" aria-label="Id">
+    </div>
+    <div class="input-group flex-nowrap">
+        <input type="text" class="form-control" name="Mail" id="Mail" value="@Model.Mail" placeholder="Mail" aria-label="Mail">
+    </div>
+
+    <button type="submit" class="btn btn-primary">Update</button>
+</form>

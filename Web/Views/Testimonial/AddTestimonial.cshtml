@@ -1,0 +1,23 @@
+﻿@@using HotelProject.Business.Responses.Testimonial
+@using HotelProject.Entities.Dto_s.TestimonialDto
+@{
+    Layout = "_Layout";
+}
+
+<form method="post" enctype="multipart/form-data">
+    <div class="input-group flex-nowrap">
+
+        <input type="text" class="form-control" name="Name" id="Name" placeholder="Name" aria-label="Name">
+    </div>
+    <div class="input-group flex-nowrap">
+
+        <input type="text" class="form-control" name="Title" id="Title" placeholder="Title" aria-label="Title">
+    </div>
+    <div class="input-group flex-nowrap">
+
+        <input type="text" class="form-control" name="Description" id="Description" placeholder="Description" aria-label="Description">
+    </div>
+
+
+    <button type="submit" class="btn btn-primary">Ekle</button>
+</form>

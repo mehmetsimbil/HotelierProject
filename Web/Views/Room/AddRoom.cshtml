@@ -1,0 +1,42 @@
+﻿@using HotelProject.Business.Responses.Room
+@using HotelProject.Entities.Dto_s.RoomDto
+@{
+    Layout = "_Layout";
+}
+
+<form method="post" enctype="multipart/form-data">
+    <div class="input-group flex-nowrap">
+
+        <input type="text" class="form-control" name="RoomNumber" id="RoomNumber" placeholder="RoomNumber" aria-label="RoomNumber">
+    </div>
+    <div class="input-group flex-nowrap">
+
+        <input type="text" class="form-control" name="RoomCoverImage" id="RoomCoverImage" placeholder="RoomCoverImage" aria-label="RoomCoverImage">
+    </div>
+    <div class="input-group flex-nowrap">
+
+        <input type="number" class="form-control" name="Price" id="Price" placeholder="Price" aria-label="Price">
+    </div>
+    <div class="input-group flex-nowrap">
+
+        <input type="text" class="form-control" name="Title" id="Title" placeholder="Title" aria-label="Title">
+    </div>
+    <div class="input-group flex-nowrap">
+
+        <input type="text" class="form-control" name="BedCount" id="BedCount" placeholder="BedCount" aria-label="BedCount">
+    </div>
+    <div class="input-group flex-nowrap">
+
+        <input type="text" class="form-control" name="BathCount" id="BathCount" placeholder="BathCount" aria-label="BathCount">
+    </div>
+    <div class="input-group flex-nowrap">
+
+        <input type="checkbox" class="form-control" name="Wifi" id="Wifi" placeholder="Wifi" aria-label="Wifi">
+    </div>
+    <div class="input-group flex-nowrap">
+
+        <input type="text" class="form-control" name="Description" id="Description" placeholder="Description" aria-label="Description">
+    </div>
+
+    <button type="submit" class="btn btn-primary">Ekle</button>
+</form>

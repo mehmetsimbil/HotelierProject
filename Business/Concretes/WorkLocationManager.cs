@@ -31,6 +31,13 @@ namespace Business.Concretes
         public DeleteWorkLocationResponse Delete(DeleteWorkLocationRequest request)
         {
             WorkLocation? workLocationToDeleted = _unitOfWork.WorkLocationDal.Get(predicate:wl=>wl.Id == request.Id);
+            if (workLocationToDeleted == null)
+            {
+                throw new KeyNotFoundException($"No About found with ID {request.Id}");
+            }
+
+
+            workLocationToDeleted.IsDeleted = true;
             WorkLocation deletedWorkLocation = _unitOfWork.WorkLocationDal.Delete(workLocationToDeleted!);
             var response = _mapper.Map<DeleteWorkLocationResponse>(deletedWorkLocation);
             _unitOfWork.Save();

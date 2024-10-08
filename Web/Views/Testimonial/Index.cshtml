@@ -1,0 +1,45 @@
+﻿@using HotelProject.Business.Responses.Testimonial
+@using HotelProject.Entities.Dto_s.TestimonialDto
+
+@model List<TestimonialListItemDto>
+@{
+    Layout = "_Layout";
+}
+
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Name</th>
+            <th scope="col">Title</th>
+            <th scope="col">Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <th scope="row" style="color:blue">
+                    @item.Id
+                </th>
+                <th scope="row" style="color:red">
+                    @item.Name
+                </th>
+                <th scope="row" style="color:red">
+                    @item.Title
+                </th>
+                <th scope="row" style="color:red">
+                    @item.Description
+                </th>
+                <th>
+                    <a href="@Url.Action("GetById", "Testimonial", new { id = item.Id })" class="btn btn-success">Güncelle</a>
+                    <form method="post" action="@Url.Action("DeleteTestimonial", "Testimonial")" style="display:inline;">
+                        <input type="hidden" name="Id" value="@item.Id" />
+                        <button type="submit" class="btn btn-danger" onclick="return confirm('Bu kaydı silmek istediğinize emin misiniz?');">Sil</button>
+                    </form>
+                </th>
+            </tr>
+        }
+    </tbody>
+
+</table>

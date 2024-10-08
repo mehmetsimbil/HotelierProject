@@ -1,0 +1,34 @@
+﻿@using HotelProject.Business.Responses.SendMessage
+@using HotelProject.Entities.Dto_s.SendMessageDto
+
+@model HotelProject.Business.Requests.SendMessage.UpdateSendMessageRequest
+
+@{
+    Layout = "_Layout";
+}
+
+<form method="post" action="@Url.Action("UpdateAbout", "About")" enctype="multipart/form-data">
+    <div class="input-group flex-nowrap">
+        <input type="hidden" class="form-control" value="@Model.Id" name="Id" id="Id" aria-label="Id">
+    </div>
+    <div class="input-group flex-nowrap">
+        <input type="text" class="form-control" name="ReceiverName" id="ReceiverName" value="@Model.ReceiverName" placeholder="ReceiverName" aria-label="ReceiverName">
+    </div>
+    <div class="input-group flex-nowrap">
+        <input type="text" class="form-control" name="ReceiverMail" id="ReceiverMail" value="@Model.ReceiverMail" placeholder="ReceiverMail" aria-label="ReceiverMail" />
+    </div>
+    <div class="input-group flex-nowrap">
+        <input type="text" class="form-control" name="SenderName" id="SenderName" value="@Model.SenderName" placeholder="SenderName" aria-label="SenderName">
+    </div>
+    <div class="input-group flex-nowrap">
+        <input type="number" class="form-control" name="SenderMail" id="SenderMail" value="@Model.SenderMail" placeholder="SenderMail" aria-label="SenderMail">
+    </div>
+    <div class="input-group flex-nowrap">
+        <input type="number" class="form-control" name="Title" id="Title" value="@Model.Title" placeholder="Title" aria-label="Title">
+    </div>
+    <div class="input-group flex-nowrap">
+        <input type="number" class="form-control" name="Content" id="Content" value="@Model.Content" placeholder="Content" aria-label="Content">
+    </div>
+
+    <button type="submit" class="btn btn-primary">Update</button>
+</form>

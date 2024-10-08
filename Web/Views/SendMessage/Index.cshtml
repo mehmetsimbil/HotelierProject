@@ -1,0 +1,57 @@
+﻿@using HotelProject.Business.Responses.SendMessage
+@using HotelProject.Entities.Dto_s.SendMessageDto
+
+@model List<SendMessageListItemDto>
+@{
+    Layout = "_Layout";
+}
+
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Receiver Name</th>
+            <th scope="col">Receiver Mail</th>
+            <th scope="col">Sender Name</th>
+            <th scope="col">Sender Mail</th>
+            <th scope="col">Title</th>
+            <th scope="col">Content</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <th scope="row" style="color:blue">
+                    @item.Id
+                </th>
+                <th scope="row" style="color:red">
+                    @item.ReceiverName
+                </th>
+                <th scope="row" style="color:red">
+                    @item.ReceiverMail
+                </th>
+                <th scope="row" style="color:red">
+                    @item.SenderName
+                </th>
+                <th scope="row" style="color:red">
+                    @item.SenderMail
+                </th>
+                <th scope="row" style="color:red">
+                    @item.Title
+                </th>
+                <th scope="row" style="color:red">
+                    @item.Content
+                </th>
+                <th>
+                    <a href="@Url.Action("GetById", "SendMessage", new { id = item.Id })" class="btn btn-success">Güncelle</a>
+                    <form method="post" action="@Url.Action("DeleteSendMessage", "SendMessage")" style="display:inline;">
+                        <input type="hidden" name="Id" value="@item.Id" />
+                        <button type="submit" class="btn btn-danger" onclick="return confirm('Bu kaydı silmek istediğinize emin misiniz?');">Sil</button>
+                    </form>
+                </th>
+            </tr>
+        }
+    </tbody>
+
+</table>

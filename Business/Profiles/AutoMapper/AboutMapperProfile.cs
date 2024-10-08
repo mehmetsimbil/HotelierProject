@@ -21,7 +21,7 @@ namespace HotelProject.Business.Profiles.AutoMapper
             CreateMap<UpdateAboutRequest,About>().ForMember(dest => dest.Id, opt => opt.Ignore()); ;
             CreateMap<About,UpdateAboutResponse>();
 
-            CreateMap<About, GetAboutByIdResponse>();
+            CreateMap<About, GetAboutyByIdResponse>();
         }
     }
 }

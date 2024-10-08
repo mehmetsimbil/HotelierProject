@@ -32,6 +32,13 @@ namespace HotelProject.Business.Concretes
         public DeleteRoomResponse Delete(DeleteRoomRequest request)
         {
             Room? roomToDelete = _unitOfWork.RoomDal.Get(predicate:r=>r.Id == request.Id);
+            if (roomToDelete == null)
+            {
+                throw new KeyNotFoundException($"No About found with ID {request.Id}");
+            }
+
+
+            roomToDelete.IsDeleted = true;
             Room deletedRoom = _unitOfWork.RoomDal.Delete(roomToDelete!);
             var response = _mapper.Map<DeleteRoomResponse>(deletedRoom);
             _unitOfWork.Save();

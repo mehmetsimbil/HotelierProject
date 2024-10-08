@@ -32,6 +32,13 @@ namespace HotelProject.Business.Concretes
         public DeleteServiceResponse Delete(DeleteServiceRequest request)
         {
             Service? serviceToDelete = _unitOfWork.ServiceDal.Get(predicate:s=>s.Id == request.Id);
+            if (serviceToDelete == null)
+            {
+                throw new KeyNotFoundException($"No About found with ID {request.Id}");
+            }
+
+
+            serviceToDelete.IsDeleted = true;
             Service deletedService = _unitOfWork.ServiceDal.Delete(serviceToDelete!);
             var response = _mapper.Map<DeleteServiceResponse>(deletedService);
             _unitOfWork.Save();

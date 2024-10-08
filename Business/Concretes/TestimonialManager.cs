@@ -32,6 +32,13 @@ namespace HotelProject.Business.Concretes
         public DeleteTestimonialResponse Delete(DeleteTestimonialRequest request)
         {
             Testimonial? testimonialToDelete = _unitOfWork.TestimonialDal.Get(predicate:t=>t.Id == request.Id);
+            if (testimonialToDelete == null)
+            {
+                throw new KeyNotFoundException($"No About found with ID {request.Id}");
+            }
+
+
+            testimonialToDelete.IsDeleted = true;
             Testimonial deletedTestimonial = _unitOfWork.TestimonialDal.Delete(testimonialToDelete!);
             var response = _mapper.Map<DeleteTestimonialResponse>(deletedTestimonial);
             _unitOfWork.Save();

@@ -1,0 +1,26 @@
+﻿@using HotelProject.Business.Responses.Service
+@using HotelProject.Entities.Dto_s.ServiceDto
+
+@model HotelProject.Business.Requests.Service.UpdateServiceRequest
+
+@{
+    Layout = "_Layout";
+}
+
+<form method="post" action="@Url.Action("UpdateService", "Service")" enctype="multipart/form-data">
+    <div class="input-group flex-nowrap">
+        <input type="hidden" class="form-control" value="@Model.Id" name="Id" id="Id" aria-label="Id">
+    </div>
+    <div class="input-group flex-nowrap">
+        <input type="text" class="form-control" name="Title" id="Title" value="@Model.Title" placeholder="Title" aria-label="Title">
+    </div>
+    <div class="input-group flex-nowrap">
+        <input type="text" class="form-control" name="Icon" id="Icon" value="@Model.Icon" placeholder="Icon" aria-label="Icon" />
+    </div>
+    <div class="input-group flex-nowrap">
+        <input type="text" class="form-control" name="Description" id="Description" value="@Model.Description" placeholder="Description" aria-label="Description">
+    </div>
+
+
+    <button type="submit" class="btn btn-primary">Update</button>
+</form>

@@ -1,0 +1,26 @@
+﻿@using HotelProject.Business.Responses.Guest
+@using HotelProject.Entities.Dto_s.GuestDto
+
+@model HotelProject.Business.Requests.Guest.UpdateGuestRequest
+
+@{
+    Layout = "_Layout";
+}
+
+<form method="post" action="@Url.Action("UpdateGuest", "Guest")" enctype="multipart/form-data">
+    <div class="input-group flex-nowrap">
+        <input type="hidden" class="form-control" value="@Model.Id" name="Id" id="Id" aria-label="Id">
+    </div>
+    <div class="input-group flex-nowrap">
+        <input type="text" class="form-control" name="Name" id="Name" value="@Model.Name" placeholder="Name" aria-label="Name">
+    </div>
+    <div class="input-group flex-nowrap">
+        <input type="text" class="form-control" name="Surname" id="Surname" value="@Model.Surname" placeholder="Surname" aria-label="Surname" />
+    </div>
+    <div class="input-group flex-nowrap">
+        <input type="text" class="form-control" name="City" id="City" value="@Model.City" placeholder="City" aria-label="City">
+    </div>
+   
+
+    <button type="submit" class="btn btn-primary">Update</button>
+</form>

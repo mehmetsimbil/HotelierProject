@@ -32,6 +32,13 @@ namespace HotelProject.Business.Concretes
         public DeleteGuestResponse Delete(DeleteGuestRequest request)
         {
             Guest? guestToDelete = _unitOfWork.GuestDal.Get(predicate: g=>g.Id == request.Id);
+            if (guestToDelete == null)
+            {
+                throw new KeyNotFoundException($"No About found with ID {request.Id}");
+            }
+
+
+            guestToDelete.IsDeleted = true;
             Guest deletedGuest = _unitOfWork.GuestDal.Delete(guestToDelete!);
             var response= _mapper.Map<DeleteGuestResponse>(deletedGuest);
             _unitOfWork.Save();

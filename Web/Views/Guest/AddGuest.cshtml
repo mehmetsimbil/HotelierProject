@@ -1,0 +1,23 @@
+﻿@using HotelProject.Business.Responses.Guest
+@using HotelProject.Entities.Dto_s.GuestDto
+@{
+    Layout = "_Layout";
+}
+
+<form method="post" enctype="multipart/form-data">
+    <div class="input-group flex-nowrap">
+
+        <input type="text" class="form-control" name="Name" id="Name" placeholder="Name" aria-label="Name">
+    </div>
+    <div class="input-group flex-nowrap">
+
+        <input type="text" class="form-control" name="Surname" id="Surname" placeholder="Surname" aria-label="Surname">
+    </div>
+    <div class="input-group flex-nowrap">
+
+        <input type="text" class="form-control" name="City" id="City" placeholder="City" aria-label="City">
+    </div>
+    
+
+    <button type="submit" class="btn btn-primary">Ekle</button>
+</form>

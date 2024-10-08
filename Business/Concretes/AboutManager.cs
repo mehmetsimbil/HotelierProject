@@ -51,10 +51,10 @@ namespace HotelProject.Business.Concretes
         }
 
 
-        public GetAboutByIdResponse GetById(GetAboutByIdRequest request)
+        public GetAboutyByIdResponse GetById(GetAboutByIdRequest request)
         {
            About? about = _unitOfWork.AboutDal.Get(predicate:a=> a.Id == request.Id);
-            var response = _mapper.Map<GetAboutByIdResponse>(about);
+            var response = _mapper.Map<GetAboutyByIdResponse>(about);
             return response;    
         }
 

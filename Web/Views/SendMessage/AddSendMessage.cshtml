@@ -1,0 +1,34 @@
+﻿@using HotelProject.Business.Responses.SendMessage
+@using HotelProject.Entities.Dto_s.SendMessageDto
+@{
+    Layout = "_Layout";
+}
+
+<form method="post" enctype="multipart/form-data">
+    <div class="input-group flex-nowrap">
+
+        <input type="text" class="form-control" name="ReceiverName" id="ReceiverName" placeholder="ReceiverName" aria-label="ReceiverName">
+    </div>
+    <div class="input-group flex-nowrap">
+
+        <input type="text" class="form-control" name="ReceiverMail" id="ReceiverMail" placeholder="ReceiverMail" aria-label="ReceiverMail">
+    </div>
+    <div class="input-group flex-nowrap">
+
+        <input type="text" class="form-control" name="SenderName" id="SenderName" placeholder="SenderName" aria-label="SenderName">
+    </div>
+    <div class="input-group flex-nowrap">
+
+        <input type="text" class="form-control" name="SenderMail" id="SenderMail" placeholder="SenderMail" aria-label="SenderMail">
+    </div>
+    <div class="input-group flex-nowrap">
+
+        <input type="text" class="form-control" name="Title" id="Title" placeholder="Title" aria-label="Title">
+    </div>
+    <div class="input-group flex-nowrap">
+
+        <input type="text" class="form-control" name="Content" id="Content" placeholder="Content" aria-label="Content">
+    </div>
+
+    <button type="submit" class="btn btn-primary">Ekle</button>
+</form>

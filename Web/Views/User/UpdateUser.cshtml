@@ -1,0 +1,37 @@
+﻿@using HotelProject.Business.Responses.User
+@using HotelProject.Entities.Dto_s.UserDto
+
+@model HotelProject.Business.Requests.User.UpdateUserRequest
+
+@{
+    Layout = "_Layout";
+}
+
+<form method="post" action="@Url.Action("UpdateAbout", "About")" enctype="multipart/form-data">
+    <div class="input-group flex-nowrap">
+        <input type="hidden" class="form-control" value="@Model.Id" name="Id" id="Id" aria-label="Id">
+    </div>
+    <div class="input-group flex-nowrap">
+        <input type="text" class="form-control" name="Name" id="Name" value="@Model.Name" placeholder="Name" aria-label="Name">
+    </div>
+    <div class="input-group flex-nowrap">
+        <input type="text" class="form-control" name="Surname" id="Surname" value="@Model.Surname" placeholder="Surname" aria-label="Surname" />
+    </div>
+    <div class="input-group flex-nowrap">
+        <input type="text" class="form-control" name="City" id="City" value="@Model.City" placeholder="City" aria-label="City">
+    </div>
+    <div class="input-group flex-nowrap">
+        <input type="text" class="form-control" name="Country" id="Country" value="@Model.Country" placeholder="Country" aria-label="Country">
+    </div>
+    <div class="input-group flex-nowrap">
+        <input type="text" class="form-control" name="Gender" id="Gender" value="@Model.Gender" placeholder="Gender" aria-label="Gender">
+    </div>
+    <div class="input-group flex-nowrap">
+        <input type="text" class="form-control" name="WorkDepartment" id="WorkDepartment" value="@Model.WorkDepartment" placeholder="WorkDepartment" aria-label="WorkDepartment">
+    </div>
+    <div class="input-group flex-nowrap">
+        <input type="number" class="form-control" name="WorkLocationID" id="WorkLocationID" value="@Model.WorkLocationID" placeholder="WorkLocationID" aria-label="WorkLocationID">
+    </div>
+
+    <button type="submit" class="btn btn-primary">Update</button>
+</form>
