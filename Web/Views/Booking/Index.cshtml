@@ -5,7 +5,11 @@
 @{
     Layout = "_Layout";
 }
-
+@if (Model == null || !Model.Any())
+{
+    <p>Henüz kullanıcı yok.</p>
+}
+else{
 <table class="table">
     <thead>
         <tr>
@@ -78,4 +82,4 @@
         }
     </tbody>
 
-</table>
+</table>}

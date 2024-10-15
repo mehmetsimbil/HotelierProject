@@ -1,0 +1,18 @@
+﻿@using HotelProject.Business.Responses.WorkLocation
+@using HotelProject.Entities.Dto_s.WorkLocationDto
+@{
+    Layout = "_Layout";
+}
+
+<form method="post" enctype="multipart/form-data">
+    <div class="input-group flex-nowrap">
+
+        <input type="text" class="form-control" name="WorkLocationName" id="WorkLocationName" placeholder="WorkLocationName" aria-label="WorkLocationName">
+    </div>
+    <div class="input-group flex-nowrap">
+
+        <input type="text" class="form-control" name="WorkLocationCity" id="WorkLocationCity" placeholder="WorkLocationCity" aria-label="WorkLocationCity">
+    </div>
+
+    <button type="submit" class="btn btn-primary">Ekle</button>
+</form>

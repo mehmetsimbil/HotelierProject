@@ -1,10 +1,5 @@
-﻿using Business.Requests.About;
-using Business.Requests.MessageCategory;
-using Business.Responses.About;
-using HotelProject.Business.Abstracts;
-using HotelProject.Business.Requests.About;
+﻿using HotelProject.Business.Abstracts;
 using HotelProject.Business.Requests.MessageCategory;
-using HotelProject.Business.Responses.About;
 using HotelProject.Business.Responses.MessageCategory;
 using Microsoft.AspNetCore.Mvc;
 

@@ -23,6 +23,7 @@ namespace HotelProject.DataAccess.Context
         public DbSet<Subscribe> Subscriptions { get; set; }
         public DbSet<Testimonial> Testimonials { get; set; }
         public DbSet<WorkLocation> WorkLocations { get; set; }
+        
 
     }
 }
