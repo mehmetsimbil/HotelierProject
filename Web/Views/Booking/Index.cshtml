@@ -5,81 +5,58 @@
 @{
     Layout = "_Layout";
 }
+
 @if (Model == null || !Model.Any())
 {
     <p>Henüz kullanıcı yok.</p>
 }
-else{
-<table class="table">
-    <thead>
-        <tr>
-            <th scope="col">Id</th>
-            <th scope="col">Name</th>
-            <th scope="col">Mail</th>
-            <th scope="col">CheckIn</th>
-            <th scope="col">CheckOut</th>
-            <th scope="col">Adult Count</th>
-            <th scope="col">Children Count</th>
-            <th scope="col">Room Count</th>
-            <th scope="col">Special Request</th>
-            <th scope="col">Description</th>
-            <th scope="col">Status</th>
-            <th scope="col">City</th>
-            <th scope="col">Country</th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var item in Model)
-        {
+else
+{
+    <table class="table">
+        <thead>
             <tr>
-                <th scope="row" style="color:blue">
-                    @item.Id
-                </th>
-                <th scope="row" style="color:red">
-                    @item.Name
-                </th>
-                <th scope="row" style="color:red">
-                    @item.Mail
-                </th>
-                <th scope="row" style="color:red">
-                    @item.CheckIn
-                </th>
-                <th scope="row" style="color:red">
-                    @item.CheckOut
-                </th>
-                <th scope="row" style="color:red">
-                    @item.AdultCount
-                </th>
-                <th scope="row" style="color:red">
-                    @item.ChildrenCount
-                </th>
-                <th scope="row" style="color:red">
-                    @item.RoomCount
-                </th>
-                <th scope="row" style="color:red">
-                    @item.SpecialRequest
-                </th>
-                <th scope="row" style="color:red">
-                    @item.Description
-                </th>
-                <th scope="row" style="color:red">
-                    @item.Status
-                </th>
-                <th scope="row" style="color:red">
-                    @item.City
-                </th>
-                <th scope="row" style="color:red">
-                    @item.Country
-                </th>
-                <th>
-                    <a href="@Url.Action("GetById", "Booking", new { id = item.Id })" class="btn btn-success">Güncelle</a>
-                    <form method="post" action="@Url.Action("DeleteBooking", "About")" style="display:inline;">
-                        <input type="hidden" name="Id" value="@item.Id" />
-                        <button type="submit" class="btn btn-danger" onclick="return confirm('Bu kaydı silmek istediğinize emin misiniz?');">Sil</button>
-                    </form>
-                </th>
-            </tr>
-        }
-    </tbody>
+                <th scope="col">Id</th>
+                <th scope="col">Name</th>
+                <th scope="col">Mail</th>
+                <th scope="col">CheckIn</th>
+                <th scope="col">CheckOut</th>
+                <th scope="col">Adult Count</th>
+                <th scope="col">Children Count</th>
+                <th scope="col">Room Count</th>
+                <th scope="col">Special Request</th>
+                <th scope="col">Description</th>
+                <th scope="col">Status</th>
+                <th scope="col">City</th>
+                <th scope="col">Country</th>
 
-</table>}
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td style="color:blue">@item.Id</td>
+                    <td style="color:red">@item.Name</td>
+                    <td style="color:red">@item.Mail</td>
+                    <td style="color:red">@item.CheckIn</td>
+                    <td style="color:red">@item.CheckOut</td>
+                    <td style="color:red">@item.AdultCount</td>
+                    <td style="color:red">@item.ChildrenCount</td>
+                    <td style="color:red">@item.RoomCount</td>
+                    <td style="color:red">@item.SpecialRequest</td>
+                    <td style="color:red">@item.Description</td>
+                    <td style="color:red">@item.Status</td>
+                    <td style="color:red">@item.City</td>
+                    <td style="color:red">@item.Country</td>
+                    <td>
+                        <a asp-action="GetById" asp-controller="Booking" asp-route-id="@item.Id" class="btn btn-success">Güncelle</a>
+                        <form method="post" asp-action="DeleteBooking" asp-controller="About" style="display:inline;">
+                            <input type="hidden" name="Id" value="@item.Id" />
+                            <button type="submit" class="btn btn-danger" onclick="return confirm('Bu kaydı silmek istediğinize emin misiniz?');">Sil</button>
+                        </form>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}

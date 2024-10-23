@@ -1,31 +1,26 @@
 ﻿@using HotelProject.Business.Responses.Contact
 @using HotelProject.Entities.Dto_s.ContactDto
+@model HotelProject.Business.Requests.Contact.AddContactRequest
 @{
     Layout = "_Layout";
 }
 
-<form method="post" enctype="multipart/form-data">
+<form method="post" asp-action="AddContact" enctype="multipart/form-data">
     <div class="input-group flex-nowrap">
-
-        <input type="text" class="form-control" name="Name" id="Name" placeholder="Name" aria-label="Name">
+        <input asp-for="Name" class="form-control" placeholder="Name" aria-label="Name" />
     </div>
     <div class="input-group flex-nowrap">
-
-        <input type="text" class="form-control" name="Mail" id="Mail" placeholder="Mail" aria-label="Mail">
+        <input asp-for="Mail" class="form-control" placeholder="Mail" aria-label="Mail" />
     </div>
     <div class="input-group flex-nowrap">
-
-        <input type="text" class="form-control" name="Subject" id="Subject" placeholder="Subject" aria-label="Subject">
+        <input asp-for="Subject" class="form-control" placeholder="Subject" aria-label="Subject" />
     </div>
     <div class="input-group flex-nowrap">
-
-        <input type="text" class="form-control" name="Message" id="Message" placeholder="Message" aria-label="Message">
+        <input asp-for="Message" class="form-control" placeholder="Message" aria-label="Message" />
     </div>
     <div class="input-group flex-nowrap">
-
-        <input type="number" class="form-control" name="MessageCategoryID" id="MessageCategoryID" placeholder="MessageCategoryID" aria-label="MessageCategoryID">
+        <input asp-for="MessageCategoryID" type="number" class="form-control" placeholder="MessageCategoryID" aria-label="MessageCategoryID" />
     </div>
-   
 
     <button type="submit" class="btn btn-primary">Ekle</button>
 </form>

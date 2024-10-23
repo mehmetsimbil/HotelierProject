@@ -4,13 +4,10 @@
     Layout = "_Layout";
 }
 
-<form method="post" enctype="multipart/form-data">
+<form asp-action="AddSubscribe" method="post" enctype="multipart/form-data">
     <div class="input-group flex-nowrap">
-
-        <input type="text" class="form-control" name="Mail" id="Mail" placeholder="Mail" aria-label="Mail">
+        <input type="text" class="form-control" name="Mail" id="Mail" placeholder="Mail" aria-label="Mail" required>
     </div>
-    
-
 
     <button type="submit" class="btn btn-primary">Ekle</button>
 </form>

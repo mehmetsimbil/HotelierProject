@@ -7,36 +7,35 @@
     Layout = "_Layout";
 }
 
-<form method="post" action="@Url.Action("UpdateRoom", "Room")" enctype="multipart/form-data">
+<form method="post" asp-action="UpdateRoom" asp-controller="Room" enctype="multipart/form-data">
     <div class="input-group flex-nowrap">
-        <input type="hidden" class="form-control" value="@Model.Id" name="Id" id="Id" aria-label="Id">
+        <input type="hidden" class="form-control" asp-for="Id" aria-label="Id">
     </div>
     <div class="input-group flex-nowrap">
-        <input type="text" class="form-control" name="RoomNumber" id="RoomNumber" value="@Model.RoomNumber" placeholder="RoomNumber" aria-label="RoomNumber">
+        <input type="text" class="form-control" asp-for="RoomNumber" placeholder="Room Number" aria-label="RoomNumber">
     </div>
     <div class="input-group flex-nowrap">
-        <input type="text" class="form-control" name="RoomCoverImage" id="RoomCoverImage" value="@Model.RoomCoverImage" placeholder="RoomCoverImage" aria-label="RoomCoverImage" />
+        <input type="text" class="form-control" asp-for="RoomCoverImage" placeholder="Room Cover Image" aria-label="RoomCoverImage" />
     </div>
     <div class="input-group flex-nowrap">
-        <input type="number" class="form-control" name="Price" id="Price" value="@Model.Price" placeholder="Price" aria-label="Price">
+        <input type="number" class="form-control" asp-for="Price" placeholder="Price" aria-label="Price">
     </div>
     <div class="input-group flex-nowrap">
-        <input type="text" class="form-control" name="Title" id="Title" value="@Model.Title" placeholder="Title" aria-label="Title">
+        <input type="text" class="form-control" asp-for="Title" placeholder="Title" aria-label="Title">
     </div>
     <div class="input-group flex-nowrap">
-        <input type="text" class="form-control" name="BedCount" id="BedCount" value="@Model.BedCount" placeholder="BedCount" aria-label="BedCount">
+        <input type="number" class="form-control" asp-for="BedCount" placeholder="Bed Count" aria-label="BedCount">
     </div>
     <div class="input-group flex-nowrap">
-        <input type="text" class="form-control" name="BathCount" id="BathCount" value="@Model.BathCount" placeholder="BathCount" aria-label="BathCount">
+        <input type="number" class="form-control" asp-for="BathCount" placeholder="Bath Count" aria-label="BathCount">
     </div>
     <div class="input-group flex-nowrap">
-        <input type="checkbox" class="form-control" name="Wifi" id="Wifi" value="@Model.Wifi" placeholder="Wifi" aria-label="Wifi">
+        <input type="checkbox" class="form-check-input" asp-for="Wifi" aria-label="Wifi">
+        <label class="form-check-label" for="Wifi">Wifi</label>
     </div>
-
     <div class="input-group flex-nowrap">
-        <input type="text" class="form-control" name="Description" id="Description" value="@Model.Description" placeholder="Description" aria-label="Description">
+        <input type="text" class="form-control" asp-for="Description" placeholder="Description" aria-label="Description">
     </div>
-
 
     <button type="submit" class="btn btn-primary">Update</button>
 </form>

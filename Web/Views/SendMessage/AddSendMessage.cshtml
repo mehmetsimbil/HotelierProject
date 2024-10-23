@@ -1,33 +1,28 @@
 ﻿@using HotelProject.Business.Responses.SendMessage
 @using HotelProject.Entities.Dto_s.SendMessageDto
+@model HotelProject.Business.Requests.SendMessage.AddSendMessageRequest
 @{
     Layout = "_Layout";
 }
 
-<form method="post" enctype="multipart/form-data">
+<form method="post" asp-action="AddSendMessage" enctype="multipart/form-data">
     <div class="input-group flex-nowrap">
-
-        <input type="text" class="form-control" name="ReceiverName" id="ReceiverName" placeholder="ReceiverName" aria-label="ReceiverName">
+        <input asp-for="ReceiverName" class="form-control" placeholder="Receiver Name" aria-label="ReceiverName" required>
     </div>
     <div class="input-group flex-nowrap">
-
-        <input type="text" class="form-control" name="ReceiverMail" id="ReceiverMail" placeholder="ReceiverMail" aria-label="ReceiverMail">
+        <input asp-for="ReceiverMail"  class="form-control"  placeholder="Receiver Mail" aria-label="ReceiverMail" required>
     </div>
     <div class="input-group flex-nowrap">
-
-        <input type="text" class="form-control" name="SenderName" id="SenderName" placeholder="SenderName" aria-label="SenderName">
+        <input asp-for="SenderName" class="form-control"  placeholder="Sender Name" aria-label="SenderName" required>
     </div>
     <div class="input-group flex-nowrap">
-
-        <input type="text" class="form-control" name="SenderMail" id="SenderMail" placeholder="SenderMail" aria-label="SenderMail">
+        <input asp-for="SenderMail" class="form-control"  placeholder="Sender Mail" aria-label="SenderMail" required>
     </div>
     <div class="input-group flex-nowrap">
-
-        <input type="text" class="form-control" name="Title" id="Title" placeholder="Title" aria-label="Title">
+        <input asp-for="Title" class="form-control" placeholder="Title" aria-label="Title" required>
     </div>
     <div class="input-group flex-nowrap">
-
-        <input type="text" class="form-control" name="Content" id="Content" placeholder="Content" aria-label="Content">
+        <textarea asp-for="Content" class="form-control" placeholder="Content" aria-label="Content" required></textarea>
     </div>
 
     <button type="submit" class="btn btn-primary">Ekle</button>

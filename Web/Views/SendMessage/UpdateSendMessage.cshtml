@@ -7,27 +7,26 @@
     Layout = "_Layout";
 }
 
-<form method="post" action="@Url.Action("UpdateAbout", "About")" enctype="multipart/form-data">
+<form method="post" asp-action="UpdateSendMessage" enctype="multipart/form-data">
+    <input type="hidden" asp-for="Id" />
+
     <div class="input-group flex-nowrap">
-        <input type="hidden" class="form-control" value="@Model.Id" name="Id" id="Id" aria-label="Id">
+        <input type="text" class="form-control" asp-for="ReceiverName" placeholder="Receiver Name" aria-label="ReceiverName" required />
     </div>
     <div class="input-group flex-nowrap">
-        <input type="text" class="form-control" name="ReceiverName" id="ReceiverName" value="@Model.ReceiverName" placeholder="ReceiverName" aria-label="ReceiverName">
+        <input type="email" class="form-control" asp-for="ReceiverMail" placeholder="Receiver Mail" aria-label="ReceiverMail" required />
     </div>
     <div class="input-group flex-nowrap">
-        <input type="text" class="form-control" name="ReceiverMail" id="ReceiverMail" value="@Model.ReceiverMail" placeholder="ReceiverMail" aria-label="ReceiverMail" />
+        <input type="text" class="form-control" asp-for="SenderName" placeholder="Sender Name" aria-label="SenderName" required />
     </div>
     <div class="input-group flex-nowrap">
-        <input type="text" class="form-control" name="SenderName" id="SenderName" value="@Model.SenderName" placeholder="SenderName" aria-label="SenderName">
+        <input type="email" class="form-control" asp-for="SenderMail" placeholder="Sender Mail" aria-label="SenderMail" required />
     </div>
     <div class="input-group flex-nowrap">
-        <input type="number" class="form-control" name="SenderMail" id="SenderMail" value="@Model.SenderMail" placeholder="SenderMail" aria-label="SenderMail">
+        <input type="text" class="form-control" asp-for="Title" placeholder="Title" aria-label="Title" required />
     </div>
     <div class="input-group flex-nowrap">
-        <input type="number" class="form-control" name="Title" id="Title" value="@Model.Title" placeholder="Title" aria-label="Title">
-    </div>
-    <div class="input-group flex-nowrap">
-        <input type="number" class="form-control" name="Content" id="Content" value="@Model.Content" placeholder="Content" aria-label="Content">
+        <textarea class="form-control" asp-for="Content" placeholder="Content" aria-label="Content" required></textarea>
     </div>
 
     <button type="submit" class="btn btn-primary">Update</button>

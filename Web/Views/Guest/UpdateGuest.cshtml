@@ -7,20 +7,18 @@
     Layout = "_Layout";
 }
 
-<form method="post" action="@Url.Action("UpdateGuest", "Guest")" enctype="multipart/form-data">
+<form method="post" asp-action="UpdateGuest" asp-controller="Guest" enctype="multipart/form-data">
+    <input type="hidden" asp-for="Id" />
+
     <div class="input-group flex-nowrap">
-        <input type="hidden" class="form-control" value="@Model.Id" name="Id" id="Id" aria-label="Id">
+        <input asp-for="Name" class="form-control" placeholder="Name" aria-label="Name" />
     </div>
     <div class="input-group flex-nowrap">
-        <input type="text" class="form-control" name="Name" id="Name" value="@Model.Name" placeholder="Name" aria-label="Name">
+        <input asp-for="Surname" class="form-control" placeholder="Surname" aria-label="Surname" />
     </div>
     <div class="input-group flex-nowrap">
-        <input type="text" class="form-control" name="Surname" id="Surname" value="@Model.Surname" placeholder="Surname" aria-label="Surname" />
+        <input asp-for="City" class="form-control" placeholder="City" aria-label="City" />
     </div>
-    <div class="input-group flex-nowrap">
-        <input type="text" class="form-control" name="City" id="City" value="@Model.City" placeholder="City" aria-label="City">
-    </div>
-   
 
     <button type="submit" class="btn btn-primary">Update</button>
 </form>

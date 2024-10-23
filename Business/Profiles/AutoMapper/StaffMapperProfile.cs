@@ -14,7 +14,8 @@ namespace HotelProject.Business.Profiles.AutoMapper
             CreateMap<AddStaffRequest, Staff>();
             CreateMap<Staff,AddStaffResponse>();
             CreateMap<Staff,StaffListItemDto>();
-            CreateMap<IList<Staff>,GetStaffListResponse>();
+            CreateMap<IList<Staff>,GetStaffListResponse>()
+                 .ForMember(dest => dest.Items, opt => opt.MapFrom(src => src)); 
             CreateMap<UpdateStaffRequest, Staff>();
             CreateMap<Staff, UpdateStaffResponse>();
             CreateMap<Staff, DeleteStaffResponse>();

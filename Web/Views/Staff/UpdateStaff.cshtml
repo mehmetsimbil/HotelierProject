@@ -7,27 +7,27 @@
     Layout = "_Layout";
 }
 
-<form method="post" action="@Url.Action("UpdateStaff", "Staff")" enctype="multipart/form-data">
+<form method="post" asp-action="UpdateStaff" asp-controller="Staff" enctype="multipart/form-data">
     <div class="input-group flex-nowrap">
         <input type="hidden" class="form-control" value="@Model.Id" name="Id" id="Id" aria-label="Id">
     </div>
     <div class="input-group flex-nowrap">
-        <input type="text" class="form-control" name="Name" id="Name" value="@Model.Name" placeholder="Name" aria-label="Name">
+        <input type="text" class="form-control" name="Name" id="Name" value="@Model.Name" placeholder="Name" aria-label="Name" required>
     </div>
     <div class="input-group flex-nowrap">
-        <input type="text" class="form-control" name="Title" id="Title" value="@Model.Title" placeholder="Title" aria-label="Title" />
+        <input type="text" class="form-control" name="Title" id="Title" value="@Model.Title" placeholder="Title" aria-label="Title" required>
     </div>
     <div class="input-group flex-nowrap">
-        <input type="text" class="form-control" name="Image" id="Image" value="@Model.Image" placeholder="Image" aria-label="Image">
+        <input type="text" class="form-control" name="Image" id="Image" value="@Model.Image" placeholder="Image" aria-label="Image" required>
     </div>
     <div class="input-group flex-nowrap">
-        <input type="number" class="form-control" name="Github" id="Github" value="@Model.Github" placeholder="Github" aria-label="Github">
+        <input type="text" class="form-control" name="Github" id="Github" value="@Model.Github" placeholder="Github" aria-label="Github">
     </div>
     <div class="input-group flex-nowrap">
-        <input type="number" class="form-control" name="Instagram" id="Instagram" value="@Model.Instagram" placeholder="Instagram" aria-label="Instagram">
+        <input type="text" class="form-control" name="Instagram" id="Instagram" value="@Model.Instagram" placeholder="Instagram" aria-label="Instagram">
     </div>
     <div class="input-group flex-nowrap">
-        <input type="number" class="form-control" name="Linkedin" id="Linkedin" value="@Model.Linkedin" placeholder="Linkedin" aria-label="Linkedin">
+        <input type="text" class="form-control" name="Linkedin" id="Linkedin" value="@Model.Linkedin" placeholder="Linkedin" aria-label="Linkedin">
     </div>
 
     <button type="submit" class="btn btn-primary">Update</button>

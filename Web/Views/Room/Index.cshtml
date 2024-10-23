@@ -1,7 +1,6 @@
 ﻿@using HotelProject.Business.Responses.Room
 @using HotelProject.Entities.Dto_s.RoomDto
 
-@model List<RoomLıstItemDto>
 @{
     Layout = "_Layout";
 }
@@ -18,49 +17,30 @@
             <th scope="col">Bed Count</th>
             <th scope="col">Wifi</th>
             <th scope="col">Description</th>
+            <th scope="col">Actions</th>
         </tr>
     </thead>
     <tbody>
         @foreach (var item in Model)
         {
             <tr>
-                <th scope="row" style="color:blue">
-                    @item.Id
-                </th>
-                <th scope="row" style="color:red">
-                    @item.RoomNumber
-                </th>
-                <th scope="row" style="color:red">
-                    @item.RoomCoverImage
-                </th>
-                <th scope="row" style="color:red">
-                    @item.Price
-                </th>
-                <th scope="row" style="color:red">
-                    @item.Title
-                </th>
-                <th scope="row" style="color:red">
-                    @item.BathCount
-                </th>
-                <th scope="row" style="color:red">
-                    @item.BedCount
-                </th>
-                <th scope="row" style="color:red">
-                    @item.Wifi
-                </th>
-                <th scope="row" style="color:red">
-                    @item.Description
-                </th>
-
-                <th>
-                    <a href="@Url.Action("GetById", "Room", new { id = item.Id })" class="btn btn-success">Güncelle</a>
-                    <form method="post" action="@Url.Action("DeleteRoom", "Room")" style="display:inline;">
+                <td style="color:blue">@item.Id</td>
+                <td style="color:red">@item.RoomNumber</td>
+                <td style="color:red">@item.RoomCoverImage</td>
+                <td style="color:red">@item.Price</td>
+                <td style="color:red">@item.Title</td>
+                <td style="color:red">@item.BathCount</td>
+                <td style="color:red">@item.BedCount</td>
+                <td style="color:red">@item.Wifi</td>
+                <td style="color:red">@item.Description</td>
+                <td>
+                    <a asp-action="GetById" asp-controller="Room" asp-route-id="@item.Id" class="btn btn-success">Güncelle</a>
+                    <form method="post" asp-action="DeleteRoom" asp-controller="Room" style="display:inline;">
                         <input type="hidden" name="Id" value="@item.Id" />
                         <button type="submit" class="btn btn-danger" onclick="return confirm('Bu kaydı silmek istediğinize emin misiniz?');">Sil</button>
                     </form>
-                </th>
+                </td>
             </tr>
         }
     </tbody>
-
 </table>

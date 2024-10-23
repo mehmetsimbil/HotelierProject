@@ -1,23 +1,21 @@
 ﻿@using HotelProject.Business.Responses.Guest
 @using HotelProject.Entities.Dto_s.GuestDto
+@model HotelProject.Business.Requests.Guest.AddGuestRequest
+
 @{
     Layout = "_Layout";
 }
 
-<form method="post" enctype="multipart/form-data">
+<form method="post" asp-action="AddGuest" asp-controller="Guest" enctype="multipart/form-data">
     <div class="input-group flex-nowrap">
-
-        <input type="text" class="form-control" name="Name" id="Name" placeholder="Name" aria-label="Name">
+        <input asp-for="Name" class="form-control" placeholder="Name" aria-label="Name" />
     </div>
     <div class="input-group flex-nowrap">
-
-        <input type="text" class="form-control" name="Surname" id="Surname" placeholder="Surname" aria-label="Surname">
+        <input asp-for="Surname" class="form-control" placeholder="Surname" aria-label="Surname" />
     </div>
     <div class="input-group flex-nowrap">
-
-        <input type="text" class="form-control" name="City" id="City" placeholder="City" aria-label="City">
+        <input asp-for="City" class="form-control" placeholder="City" aria-label="City" />
     </div>
     
-
     <button type="submit" class="btn btn-primary">Ekle</button>
 </form>

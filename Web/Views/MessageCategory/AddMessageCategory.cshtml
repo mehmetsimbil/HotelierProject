@@ -1,14 +1,15 @@
 ﻿@using HotelProject.Business.Responses.MessageCategory
 @using HotelProject.Entities.Dto_s.MessageCategoryDto
+@model HotelProject.Business.Requests.MessageCategory.AddMessageCategoryRequest
+
 @{
     Layout = "_Layout";
 }
 
-<form method="post" enctype="multipart/form-data">
+<form method="post" asp-action="AddMessageCategory" asp-controller="MessageCategory" enctype="multipart/form-data">
     <div class="input-group flex-nowrap">
-
-        <input type="text" class="form-control" name="MessageCategoryName" id="MessageCategoryName" placeholder="MessageCategoryName" aria-label="MessageCategoryName">
-    </div>    
+        <input asp-for="MessageCategoryName" class="form-control" placeholder="MessageCategoryName" aria-label="MessageCategoryName" />
+    </div>
 
     <button type="submit" class="btn btn-primary">Ekle</button>
 </form>

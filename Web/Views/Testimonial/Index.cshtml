@@ -13,33 +13,25 @@
             <th scope="col">Name</th>
             <th scope="col">Title</th>
             <th scope="col">Description</th>
+            <th scope="col">Actions</th>
         </tr>
     </thead>
     <tbody>
         @foreach (var item in Model)
         {
             <tr>
-                <th scope="row" style="color:blue">
-                    @item.Id
-                </th>
-                <th scope="row" style="color:red">
-                    @item.Name
-                </th>
-                <th scope="row" style="color:red">
-                    @item.Title
-                </th>
-                <th scope="row" style="color:red">
-                    @item.Description
-                </th>
-                <th>
-                    <a href="@Url.Action("GetById", "Testimonial", new { id = item.Id })" class="btn btn-success">Güncelle</a>
-                    <form method="post" action="@Url.Action("DeleteTestimonial", "Testimonial")" style="display:inline;">
+                <td style="color:blue">@item.Id</td>
+                <td style="color:red">@item.Name</td>
+                <td style="color:red">@item.Title</td>
+                <td style="color:red">@item.Description</td>
+                <td>
+                    <a asp-action="GetById" asp-controller="Testimonial" asp-route-id="@item.Id" class="btn btn-success">Güncelle</a>
+                    <form asp-action="DeleteTestimonial" asp-controller="Testimonial" method="post" style="display:inline;">
                         <input type="hidden" name="Id" value="@item.Id" />
                         <button type="submit" class="btn btn-danger" onclick="return confirm('Bu kaydı silmek istediğinize emin misiniz?');">Sil</button>
                     </form>
-                </th>
+                </td>
             </tr>
         }
     </tbody>
-
 </table>

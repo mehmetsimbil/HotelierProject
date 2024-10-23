@@ -16,42 +16,28 @@
             <th scope="col">Sender Mail</th>
             <th scope="col">Title</th>
             <th scope="col">Content</th>
+            <th scope="col">Actions</th>
         </tr>
     </thead>
     <tbody>
         @foreach (var item in Model)
         {
             <tr>
-                <th scope="row" style="color:blue">
-                    @item.Id
-                </th>
-                <th scope="row" style="color:red">
-                    @item.ReceiverName
-                </th>
-                <th scope="row" style="color:red">
-                    @item.ReceiverMail
-                </th>
-                <th scope="row" style="color:red">
-                    @item.SenderName
-                </th>
-                <th scope="row" style="color:red">
-                    @item.SenderMail
-                </th>
-                <th scope="row" style="color:red">
-                    @item.Title
-                </th>
-                <th scope="row" style="color:red">
-                    @item.Content
-                </th>
-                <th>
-                    <a href="@Url.Action("GetById", "SendMessage", new { id = item.Id })" class="btn btn-success">Güncelle</a>
-                    <form method="post" action="@Url.Action("DeleteSendMessage", "SendMessage")" style="display:inline;">
+                <td style="color:blue">@item.Id</td>
+                <td style="color:red">@item.ReceiverName</td>
+                <td style="color:red">@item.ReceiverMail</td>
+                <td style="color:red">@item.SenderName</td>
+                <td style="color:red">@item.SenderMail</td>
+                <td style="color:red">@item.Title</td>
+                <td style="color:red">@item.Content</td>
+                <td>
+                    <a asp-action="GetById" asp-controller="SendMessage" asp-route-id="@item.Id" class="btn btn-success">Güncelle</a>
+                    <form method="post" asp-action="DeleteSendMessage" asp-controller="SendMessage" style="display:inline;">
                         <input type="hidden" name="Id" value="@item.Id" />
                         <button type="submit" class="btn btn-danger" onclick="return confirm('Bu kaydı silmek istediğinize emin misiniz?');">Sil</button>
                     </form>
-                </th>
+                </td>
             </tr>
         }
     </tbody>
-
 </table>

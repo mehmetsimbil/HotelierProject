@@ -1,17 +1,16 @@
 ﻿@using HotelProject.Business.Responses.WorkLocation
 @using HotelProject.Entities.Dto_s.WorkLocationDto
+@model HotelProject.Business.Requests.WorkLocation.AddWorkLocationRequest
 @{
     Layout = "_Layout";
 }
 
-<form method="post" enctype="multipart/form-data">
+<form asp-action="AddWorkLocation" method="post" enctype="multipart/form-data">
     <div class="input-group flex-nowrap">
-
-        <input type="text" class="form-control" name="WorkLocationName" id="WorkLocationName" placeholder="WorkLocationName" aria-label="WorkLocationName">
+        <input type="text" class="form-control" asp-for="WorkLocationName" placeholder="Work Location Name" aria-label="WorkLocationName" required />
     </div>
     <div class="input-group flex-nowrap">
-
-        <input type="text" class="form-control" name="WorkLocationCity" id="WorkLocationCity" placeholder="WorkLocationCity" aria-label="WorkLocationCity">
+        <input type="text" class="form-control" asp-for="WorkLocationCity" placeholder="Work Location City" aria-label="WorkLocationCity" required />
     </div>
 
     <button type="submit" class="btn btn-primary">Ekle</button>

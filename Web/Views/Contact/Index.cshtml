@@ -14,44 +14,30 @@
             <th scope="col">Mail</th>
             <th scope="col">Subject</th>
             <th scope="col">Message</th>
-            <th scope="col">MessageCategoryID </th>
+            <th scope="col">MessageCategoryID</th>
             <th scope="col">MessageCategory</th>
+
         </tr>
     </thead>
     <tbody>
         @foreach (var item in Model)
         {
             <tr>
-                <th scope="row" style="color:blue">
-                    @item.Id
-                </th>
-                <th scope="row" style="color:red">
-                    @item.Name
-                </th>
-                <th scope="row" style="color:red">
-                    @item.Mail
-                </th>
-                <th scope="row" style="color:red">
-                    @item.Subject
-                </th>
-                <th scope="row" style="color:red">
-                    @item.Message
-                </th>
-                <th scope="row" style="color:red">
-                    @item.MessageCategoryID
-                </th>
-                <th scope="row" style="color:red">
-                    @item.MessageCategory
-                </th>
-                <th>
-                    <a href="@Url.Action("GetById", "Contact", new { id = item.Id })" class="btn btn-success">Güncelle</a>
-                    <form method="post" action="@Url.Action("DeleteContact", "Contact")" style="display:inline;">
+                <td style="color:blue">@item.Id</td>
+                <td style="color:red">@item.Name</td>
+                <td style="color:red">@item.Mail</td>
+                <td style="color:red">@item.Subject</td>
+                <td style="color:red">@item.Message</td>
+                <td style="color:red">@item.MessageCategoryID</td>
+                <td style="color:red">@item.MessageCategory</td>
+                <td>
+                    <a asp-action="GetById" asp-controller="Contact" asp-route-id="@item.Id" class="btn btn-success">Güncelle</a>
+                    <form method="post" asp-action="DeleteContact" asp-controller="Contact" style="display:inline;">
                         <input type="hidden" name="Id" value="@item.Id" />
                         <button type="submit" class="btn btn-danger" onclick="return confirm('Bu kaydı silmek istediğinize emin misiniz?');">Sil</button>
                     </form>
-                </th>
+                </td>
             </tr>
         }
     </tbody>
-
 </table>

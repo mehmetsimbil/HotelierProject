@@ -1,33 +1,36 @@
 ﻿@using HotelProject.Business.Responses.About
 @using HotelProject.Entities.Dto_s.AboutDto
+
+@model HotelProject.Business.Requests.About.AddAboutRequest
+
 @{
     Layout = "_Layout";
 }
 
-<form method="post" enctype="multipart/form-data">
+<form asp-action="AddAbout" asp-controller="About" method="post" enctype="multipart/form-data">
+
     <div class="input-group flex-nowrap">
-        
-        <input type="text" class="form-control" name="Title1" id="Title1" placeholder="Title1" aria-label="Title1">
+        <input type="text" class="form-control" asp-for="Title1" placeholder="Title1" aria-label="Title1" />
     </div>
+
     <div class="input-group flex-nowrap">
-        
-        <input type="text" class="form-control" name="Title2" id="Title2" placeholder="Title2" aria-label="Title2">
+        <input type="text" class="form-control" asp-for="Title2" placeholder="Title2" aria-label="Title2" />
     </div>
+
     <div class="input-group flex-nowrap">
-        
-        <input type="text" class="form-control" name="Content" id="Content" placeholder="Content" aria-label="Content">
+        <input type="text" class="form-control" asp-for="Content" placeholder="Content" aria-label="Content" />
     </div>
+
     <div class="input-group flex-nowrap">
-        
-        <input type="number" class="form-control" name="RoomCount" id="RoomCount" placeholder="RoomCount" aria-label="RoomCount">
+        <input type="number" class="form-control" asp-for="RoomCount" placeholder="RoomCount" aria-label="RoomCount" />
     </div>
+
     <div class="input-group flex-nowrap">
-        
-        <input type="number" class="form-control" name="StaffCount" id="StaffCount" placeholder="StaffCount" aria-label="StaffCount">
+        <input type="number" class="form-control" asp-for="StaffCount" placeholder="StaffCount" aria-label="StaffCount" />
     </div>
+
     <div class="input-group flex-nowrap">
-        
-        <input type="number" class="form-control" name="CustomerCount" id="CustomerCount" placeholder="CustomerCount" aria-label="CustomerCount">
+        <input type="number" class="form-control" asp-for="CustomerCount" placeholder="CustomerCount" aria-label="CustomerCount" />
     </div>
 
     <button type="submit" class="btn btn-primary">Ekle</button>

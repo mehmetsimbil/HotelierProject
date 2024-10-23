@@ -7,7 +7,7 @@
     Layout = "_Layout";
 }
 
-<form method="post" action="@Url.Action("UpdateAbout", "About")" enctype="multipart/form-data">
+<form method="post" asp-action="UpdateAbout" asp-controller="About" enctype="multipart/form-data">
     <div class="input-group flex-nowrap">
         <input type="hidden" class="form-control" value="@Model.Id" name="Id" id="Id" aria-label="Id">
     </div>

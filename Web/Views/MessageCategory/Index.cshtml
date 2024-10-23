@@ -12,31 +12,23 @@
             <th scope="col">Id</th>
             <th scope="col">Name</th>
             <th scope="col">Contact</th>
+
         </tr>
     </thead>
     <tbody>
         @foreach (var item in Model)
         {
             <tr>
-                <th scope="row" style="color:blue">
-                    @item.Id
-                </th>
-                <th scope="row" style="color:red">
-                    @item.MessageCategoryName
-                </th>
-                <th scope="row" style="color:red">
-                    @item.Contacts
-                </th>
-                
-                <th>
-                 
-                    <form method="post" action="@Url.Action("DeleteMessageCategory", "MessageCategory")" style="display:inline;">
+                <td style="color:blue">@item.Id</td>
+                <td style="color:red">@item.MessageCategoryName</td>
+                <td style="color:red">@item.Contacts</td>
+                <td>
+                    <form method="post" asp-action="DeleteMessageCategory" asp-controller="MessageCategory" style="display:inline;">
                         <input type="hidden" name="Id" value="@item.Id" />
                         <button type="submit" class="btn btn-danger" onclick="return confirm('Bu kaydı silmek istediğinize emin misiniz?');">Sil</button>
                     </form>
-                </th>
+                </td>
             </tr>
         }
     </tbody>
-
 </table>

@@ -7,30 +7,29 @@
     Layout = "_Layout";
 }
 
-<form method="post" action="@Url.Action("UpdateAbout", "About")" enctype="multipart/form-data">
+<form asp-action="UpdateAbout" asp-controller="About" method="post" enctype="multipart/form-data">
+    <input type="hidden" asp-for="Id" />
+
     <div class="input-group flex-nowrap">
-        <input type="hidden" class="form-control" value="@Model.Id" name="Id" id="Id" aria-label="Id">
+        <input type="text" class="form-control" asp-for="Name" placeholder="Name" aria-label="Name" required />
     </div>
     <div class="input-group flex-nowrap">
-        <input type="text" class="form-control" name="Name" id="Name" value="@Model.Name" placeholder="Name" aria-label="Name">
+        <input type="text" class="form-control" asp-for="Surname" placeholder="Surname" aria-label="Surname" required />
     </div>
     <div class="input-group flex-nowrap">
-        <input type="text" class="form-control" name="Surname" id="Surname" value="@Model.Surname" placeholder="Surname" aria-label="Surname" />
+        <input type="text" class="form-control" asp-for="City" placeholder="City" aria-label="City" required />
     </div>
     <div class="input-group flex-nowrap">
-        <input type="text" class="form-control" name="City" id="City" value="@Model.City" placeholder="City" aria-label="City">
+        <input type="text" class="form-control" asp-for="Country" placeholder="Country" aria-label="Country" required />
     </div>
     <div class="input-group flex-nowrap">
-        <input type="text" class="form-control" name="Country" id="Country" value="@Model.Country" placeholder="Country" aria-label="Country">
+        <input type="text" class="form-control" asp-for="Gender" placeholder="Gender" aria-label="Gender" required />
     </div>
     <div class="input-group flex-nowrap">
-        <input type="text" class="form-control" name="Gender" id="Gender" value="@Model.Gender" placeholder="Gender" aria-label="Gender">
+        <input type="text" class="form-control" asp-for="WorkDepartment" placeholder="Work Department" aria-label="WorkDepartment" required />
     </div>
     <div class="input-group flex-nowrap">
-        <input type="text" class="form-control" name="WorkDepartment" id="WorkDepartment" value="@Model.WorkDepartment" placeholder="WorkDepartment" aria-label="WorkDepartment">
-    </div>
-    <div class="input-group flex-nowrap">
-        <input type="number" class="form-control" name="WorkLocationID" id="WorkLocationID" value="@Model.WorkLocationID" placeholder="WorkLocationID" aria-label="WorkLocationID">
+        <input type="number" class="form-control" asp-for="WorkLocationID" placeholder="Work Location ID" aria-label="WorkLocationID" required />
     </div>
 
     <button type="submit" class="btn btn-primary">Update</button>

@@ -1,61 +1,46 @@
 ﻿@using HotelProject.Business.Responses.Booking
 @using HotelProject.Entities.Dto_s.BookingDto
+@model HotelProject.Business.Requests.Booking.AddBookingRequest
 @{
     Layout = "_Layout";
 }
 
-<form method="post" enctype="multipart/form-data">
+<form asp-controller="Booking" asp-action="AddBooking" method="post" enctype="multipart/form-data">
     <div class="input-group flex-nowrap">
-
-        <input type="text" class="form-control" name="Name" id="Name" placeholder="Name" aria-label="Name">
+        <input asp-for="Name" class="form-control" placeholder="Name" aria-label="Name" />
     </div>
     <div class="input-group flex-nowrap">
-
-        <input type="text" class="form-control" name="Mail" id="Mail" placeholder="Mail" aria-label="Mail">
+        <input asp-for="Mail" class="form-control" placeholder="Mail" aria-label="Mail" />
     </div>
     <div class="input-group flex-nowrap">
-
-        <input type="datetime" class="form-control" name="CheckIn" id="CheckIn" placeholder="CheckIn" aria-label="CheckIn">
+        <input asp-for="CheckIn" type="datetime-local" class="form-control" placeholder="CheckIn" aria-label="CheckIn" />
     </div>
     <div class="input-group flex-nowrap">
-
-        <input type="datetime" class="form-control" name="CheckOut" id="CheckOut" placeholder="CheckOut" aria-label="CheckOut">
+        <input asp-for="CheckOut" type="datetime-local" class="form-control" placeholder="CheckOut" aria-label="CheckOut" />
     </div>
     <div class="input-group flex-nowrap">
-
-        <input type="text" class="form-control" name="AdultCount" id="AdultCount" placeholder="AdultCount" aria-label="AdultCount">
+        <input asp-for="AdultCount" class="form-control" placeholder="AdultCount" aria-label="AdultCount" />
     </div>
     <div class="input-group flex-nowrap">
-
-        <input type="text" class="form-control" name="ChildrenCount" id="ChildrenCount" placeholder="ChildrenCount" aria-label="ChildrenCount">
+        <input asp-for="ChildrenCount" class="form-control" placeholder="ChildrenCount" aria-label="ChildrenCount" />
     </div>
     <div class="input-group flex-nowrap">
-
-        <input type="text" class="form-control" name="RoomCount" id="RoomCount" placeholder="RoomCount" aria-label="RoomCount">
+        <input asp-for="RoomCount" class="form-control" placeholder="RoomCount" aria-label="RoomCount" />
     </div>
     <div class="input-group flex-nowrap">
-
-        <input type="text" class="form-control" name="SpecialRequest" id="SpecialRequest" placeholder="SpecialRequest" aria-label="SpecialRequest">
+        <input asp-for="SpecialRequest" class="form-control" placeholder="SpecialRequest" aria-label="SpecialRequest" />
     </div>
     <div class="input-group flex-nowrap">
-
-        <input type="text" class="form-control" name="Description" id="Description" placeholder="Description" aria-label="Description">
+        <input asp-for="Description" class="form-control" placeholder="Description" aria-label="Description" />
     </div>
     <div class="input-group flex-nowrap">
-
-        <input type="text" class="form-control" name="Status" id="Status" placeholder="Status" aria-label="Status">
+        <input asp-for="Status" class="form-control" placeholder="Status" aria-label="Status" />
     </div>
     <div class="input-group flex-nowrap">
-
-        <input type="text" class="form-control" name="City" id="City" placeholder="City" aria-label="City">
+        <input asp-for="City" class="form-control" placeholder="City" aria-label="City" />
     </div>
     <div class="input-group flex-nowrap">
-
-        <input type="text" class="form-control" name="Country" id="Country" placeholder="Country" aria-label="Country">
-    </div>
-    <div class="input-group flex-nowrap">
-
-        <input type="text" class="form-control" name="CustomerCount" id="CustomerCount" placeholder="CustomerCount" aria-label="CustomerCount">
+        <input asp-for="Country" class="form-control" placeholder="Country" aria-label="Country" />
     </div>
 
     <button type="submit" class="btn btn-primary">Ekle</button>

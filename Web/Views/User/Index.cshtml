@@ -5,65 +5,50 @@
 @{
     Layout = "_Layout";
 }
+
 @if (Model == null || !Model.Any())
 {
     <p>Henüz kullanıcı yok.</p>
 }
-else{
-<table class="table">
-    <thead>
-        <tr>
-            <th scope="col">Id</th>
-            <th scope="col">Name</th>
-            <th scope="col">Surname</th>
-            <th scope="col">City</th>
-            <th scope="col">Country</th>
-            <th scope="col">Gender</th>
-            <th scope="col">WorkDepartment</th>
-            <th scope="col">WorkLocationID</th>
-            <th scope="col">WorkLocation</th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var item in Model)
-        {
+else
+{
+    <table class="table">
+        <thead>
             <tr>
-                <th scope="row" style="color:blue">
-                    @item.Id
-                </th>
-                <th scope="row" style="color:red">
-                    @item.Name
-                </th>
-                <th scope="row" style="color:red">
-                    @item.Surname
-                </th>
-                <th scope="row" style="color:red">
-                    @item.City
-                </th>
-                <th scope="row" style="color:red">
-                    @item.Country
-                </th>
-                <th scope="row" style="color:red">
-                    @item.Gender
-                </th>
-                <th scope="row" style="color:red">
-                    @item.WorkDepartment
-                </th>
-                <th scope="row" style="color:red">
-                    @item.WorkLocationID
-                </th>
-                <th scope="row" style="color:red">
-                    @item.WorkLocation
-                </th>
-                <th>
-                    <a href="@Url.Action("GetById", "User", new { id = item.Id })" class="btn btn-success">Güncelle</a>
-                    <form method="post" action="@Url.Action("DeleteUser", "User")" style="display:inline;">
-                        <input type="hidden" name="Id" value="@item.Id" />
-                        <button type="submit" class="btn btn-danger" onclick="return confirm('Bu kaydı silmek istediğinize emin misiniz?');">Sil</button>
-                    </form>
-                </th>
+                <th scope="col">Id</th>
+                <th scope="col">Name</th>
+                <th scope="col">Surname</th>
+                <th scope="col">City</th>
+                <th scope="col">Country</th>
+                <th scope="col">Gender</th>
+                <th scope="col">Work Department</th>
+                <th scope="col">Work Location ID</th>
+                <th scope="col">Work Location</th>
+                <th scope="col">Actions</th>
             </tr>
-        }
-    </tbody>
-
-</table>}
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td style="color:blue">@item.Id</td>
+                    <td style="color:red">@item.Name</td>
+                    <td style="color:red">@item.Surname</td>
+                    <td style="color:red">@item.City</td>
+                    <td style="color:red">@item.Country</td>
+                    <td style="color:red">@item.Gender</td>
+                    <td style="color:red">@item.WorkDepartment</td>
+                    <td style="color:red">@item.WorkLocationID</td>
+                    <td style="color:red">@item.WorkLocation</td>
+                    <td>
+                        <a asp-action="GetById" asp-controller="User" asp-route-id="@item.Id" class="btn btn-success">Güncelle</a>
+                        <form asp-action="DeleteUser" asp-controller="User" method="post" style="display:inline;">
+                            <input type="hidden" name="Id" value="@item.Id" />
+                            <button type="submit" class="btn btn-danger" onclick="return confirm('Bu kaydı silmek istediğinize emin misiniz?');">Sil</button>
+                        </form>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}

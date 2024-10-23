@@ -22,6 +22,12 @@ namespace Web.Controllers
             var model = result.Items;
             return View(model);
         }
+        public IActionResult _Hakkimizda(GetAboutListRequest request)
+        {
+            GetAboutListResponse result = _aboutService.GetList(request);
+            var model = result.Items;
+            return View("_Hakkimizda",model);
+        }
         [HttpPost]
         public ActionResult AddAbout(AddAboutRequest request)
         {
@@ -50,6 +56,7 @@ namespace Web.Controllers
             };
             return View("UpdateAbout", updateRequest);
             }
+
         [HttpPost]
         public ActionResult UpdateAbout(UpdateAboutRequest request)
         {

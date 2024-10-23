@@ -13,33 +13,25 @@
             <th scope="col">Name</th>
             <th scope="col">Surname</th>
             <th scope="col">City</th>
+          
         </tr>
     </thead>
     <tbody>
         @foreach (var item in Model)
         {
             <tr>
-                <th scope="row" style="color:blue">
-                    @item.Id
-                </th>
-                <th scope="row" style="color:red">
-                    @item.Name
-                </th>
-                <th scope="row" style="color:red">
-                    @item.Surname
-                </th>
-                <th scope="row" style="color:red">
-                    @item.City
-                </th>
-                <th>
-                    <a href="@Url.Action("GetById", "Guest", new { id = item.Id })" class="btn btn-success">Güncelle</a>
-                    <form method="post" action="@Url.Action("DeleteGuest", "Guest")" style="display:inline;">
+                <td style="color:blue">@item.Id</td>
+                <td style="color:red">@item.Name</td>
+                <td style="color:red">@item.Surname</td>
+                <td style="color:red">@item.City</td>
+                <td>
+                    <a asp-action="GetById" asp-controller="Guest" asp-route-id="@item.Id" class="btn btn-success">Güncelle</a>
+                    <form method="post" asp-action="DeleteGuest" asp-controller="Guest" style="display:inline;">
                         <input type="hidden" name="Id" value="@item.Id" />
                         <button type="submit" class="btn btn-danger" onclick="return confirm('Bu kaydı silmek istediğinize emin misiniz?');">Sil</button>
                     </form>
-                </th>
+                </td>
             </tr>
         }
     </tbody>
-
 </table>
