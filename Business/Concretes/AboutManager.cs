@@ -76,6 +76,11 @@ namespace HotelProject.Business.Concretes
 
         }
 
+        public IList<About> GetListToExcel()
+        {
+            IList<About> abouts = _unitOfWork.AboutDal.GetList().Where(a=>a.IsDeleted==false).ToList();
+            return abouts;
+        }
        
     }
 }

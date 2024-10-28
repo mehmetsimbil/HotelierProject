@@ -1,11 +1,12 @@
 using Business.DependencyResolvers;
+using OfficeOpenXml;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 builder.Services.AddBusinessServices(builder.Configuration);
-
+ExcelPackage.LicenseContext = LicenseContext.NonCommercial;
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

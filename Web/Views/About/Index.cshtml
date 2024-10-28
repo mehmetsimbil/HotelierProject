@@ -5,7 +5,10 @@
 @{
     Layout = "_Layout";
 }
-
+@using (Html.BeginForm("ExcelToExport", "About", FormMethod.Post))
+{
+    <button type="submit">Excel'e Aktar</button>
+}
 <table class="table">
     <thead>
         <tr>

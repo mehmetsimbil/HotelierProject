@@ -2,6 +2,7 @@
 using Business.Responses.About;
 using HotelProject.Business.Requests.About;
 using HotelProject.Business.Responses.About;
+using HotelProject.Entities.Concrete;
 
 namespace HotelProject.Business.Abstracts
 {
@@ -12,5 +13,7 @@ namespace HotelProject.Business.Abstracts
         public UpdateAboutResponse Update(UpdateAboutRequest request);
         public DeleteAboutResponse Delete(DeleteAboutRequest request);
         public GetAboutByIdResponse GetById(GetAboutByIdRequest request);
+
+        public IList<About> GetListToExcel();
     }
 }

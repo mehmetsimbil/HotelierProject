@@ -1,13 +1,16 @@
-﻿@using HotelProject.Business.Responses.About
-@using HotelProject.Entities.Dto_s.AboutDto
+﻿@using HotelProject.Entities.Dto_s.AboutDto
 
 @model List<AboutListItemDto>
 
 <section class="page-section" >
-  @foreach(var item in Model){
+    @if (true)
+    {
+        
+    }
+    @foreach(var item in Model){
     <div class="container">
         <div class="text-center">
-            <h2 class="section-heading text-uppercase">Hakkımızdaaa  @item.Content</h2>
+            <h2 class="section-heading text-uppercase">Hakkımızdaa  @item.Content </h2>
             <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur</h3>
         </div>
         <div class="row text-center">
@@ -37,6 +40,49 @@
             </div>
         </div>
     </div>
-
     }
 </section>
+
+@*  @using HotelProject.Business.Responses.About
+@using HotelProject.Entities.Dto_s.AboutDto
+
+@model List<AboutListItemDto>
+@{
+    Layout = "_Layout";
+}
+
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Title 1</th>
+            <th scope="col">Title 2</th>
+            <th scope="col">Content</th>
+            <th scope="col">Room Count</th>
+            <th scope="col">Staff Count</th>
+            <th scope="col">Customer Count</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td style="color:blue">@item.Id</td>
+                <td style="color:red">@item.Title1</td>
+                <td style="color:red">@item.Title2</td>
+
+                <td style="color:red">@item.RoomCount</td>
+                <td style="color:red">@item.StaffCount</td>
+                <td style="color:red">@item.CustomerCount</td>
+                <td>
+                    <a asp-action="GetById" asp-controller="About" asp-route-id="@item.Id" class="btn btn-success">Güncelle</a>
+                    <form asp-action="DeleteAbout" asp-controller="About" method="post" style="display:inline;">
+                        <input type="hidden" name="Id" value="@item.Id" />
+                        <button type="submit" class="btn btn-danger" onclick="return confirm('Bu kaydı silmek istediğinize emin misiniz?');">Sil</button>
+                    </form>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+ *@

@@ -20,22 +20,22 @@
     </head>
     <body id="page-top">
         <!-- Navigation-->
-        @Html.Partial("_Navbar");
+        @Html.Partial("_Navbar")
         <!-- Masthead-->
-        @Html.Partial("_Header");
+        @Html.Partial("_Header")
         <!-- Services-->
-        @Html.Partial("_Hakkimizda");
+        @await Component.InvokeAsync("Hakkimizda")
         <!-- Portfolio Grid-->
-        @Html.Partial("_Odalarimiz");
+        @Html.Partial("_Odalarimiz")
         <!-- About-->
-        @Html.Partial("_Hizmetlerimiz");
+        @Html.Partial("_Hizmetlerimiz")
         <!-- Team-->
-        @Html.Partial("_Ekibimiz");
+        @Html.Partial("_Ekibimiz")
         <!-- Clients-->
-        @Html.Partial("_Iletisim");
+        @Html.Partial("_Iletisim")
         <!-- Contact-->
         <!-- Footer-->
-        @Html.Partial("_Footer");
+        @Html.Partial("_Footer")
         <!-- Portfolio Modals-->
         <!-- Portfolio item 1 modal popup-->
         <div class="portfolio-modal modal fade" id="portfolioModal1" tabindex="-1" role="dialog" aria-hidden="true">
