@@ -1,5 +1,4 @@
-﻿using Azure.Core;
-using HotelProject.Business.Abstracts;
+﻿using HotelProject.Business.Abstracts;
 using HotelProject.Business.Requests.About;
 using HotelProject.Business.Responses.About;
 using Microsoft.AspNetCore.Mvc;

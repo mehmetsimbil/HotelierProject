@@ -1,12 +1,9 @@
 ﻿@using HotelProject.Business.Responses.About
 @using HotelProject.Entities.Dto_s.AboutDto
-
 @model HotelProject.Business.Requests.About.AddAboutRequest
 
-@{
-    Layout = "_Layout";
-}
 
+<div style="margin-top:10%">
 <form asp-action="AddAbout" asp-controller="About" method="post" enctype="multipart/form-data">
 
     <div class="input-group flex-nowrap">
@@ -35,3 +32,4 @@
 
     <button type="submit" class="btn btn-primary">Ekle</button>
 </form>
+</div>

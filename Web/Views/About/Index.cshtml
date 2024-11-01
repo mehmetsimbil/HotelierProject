@@ -3,12 +3,10 @@
 
 @model List<AboutListItemDto>
 @{
-    Layout = "_Layout";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
-@using (Html.BeginForm("ExcelToExport", "About", FormMethod.Post))
-{
-    <button type="submit">Excel'e Aktar</button>
-}
+<div style="margin-top:10%">
+
 <table class="table">
     <thead>
         <tr>
@@ -42,4 +40,10 @@
             </tr>
         }
     </tbody>
+  
 </table>
+    @using (Html.BeginForm("ExcelToExport", "About", FormMethod.Post))
+    {
+        <button type="submit">Excel'e Aktar</button>
+    }
+</div>

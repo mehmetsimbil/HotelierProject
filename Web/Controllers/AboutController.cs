@@ -3,7 +3,7 @@ using Business.Responses.About;
 using HotelProject.Business.Abstracts;
 using HotelProject.Business.Requests.About;
 using HotelProject.Business.Responses.About;
-using HotelProject.Entities.Dto_s.AboutDto;
+
 using Microsoft.AspNetCore.Mvc;
 using OfficeOpenXml;
 
@@ -21,6 +21,7 @@ namespace Web.Controllers
 
         public IActionResult Index(GetAboutListRequest request)
         {
+            ViewData["Title"] = "About";
             GetAboutListResponse result = _aboutService.GetList(request);
             var model = result.Items;
             return View(model);

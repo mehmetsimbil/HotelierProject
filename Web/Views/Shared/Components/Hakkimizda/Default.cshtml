@@ -1,12 +1,16 @@
 ﻿@using HotelProject.Entities.Dto_s.AboutDto
 
 @model List<AboutListItemDto>
+@* 
+@{
+    Layout = "_Layout";
+} *@
 
 <section class="page-section">
 
     @foreach (var item in Model)
     {
-        @if(item.Id==28){
+        @if(item.IsActive == true){
         
         <div class="container">
             <div class="text-center">
