@@ -4,7 +4,7 @@
 @{
     Layout = "_Layout";
 }
-
+<div style="margin-top:15%">
 <form method="post" enctype="multipart/form-data" asp-action="AddService" asp-controller="Service">
     <div class="input-group flex-nowrap">
         <input asp-for="Title" class="form-control" placeholder="Title" aria-label="Title" required>
@@ -18,3 +18,4 @@
 
     <button type="submit" class="btn btn-primary">Ekle</button>
 </form>
+</div>

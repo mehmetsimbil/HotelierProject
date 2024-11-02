@@ -5,7 +5,7 @@
 @{
     Layout = "_Layout";
 }
-
+<div style="margin-top:10%">
 <form method="post" asp-action="UpdateRoom" asp-controller="Room" enctype="multipart/form-data">
     <div class="input-group flex-nowrap">
         <input type="hidden" class="form-control" asp-for="Id" aria-label="Id">
@@ -38,3 +38,4 @@
 
     <button type="submit" class="btn btn-primary">Update</button>
 </form>
+</div>

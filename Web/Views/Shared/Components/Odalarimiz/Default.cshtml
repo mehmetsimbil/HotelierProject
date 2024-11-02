@@ -4,29 +4,45 @@
 
 
 <section class="page-section bg-light" id="portfolio">
-    @foreach(var item in Model){
+    
     <div class="container">
         <div class="text-center">
             <h2 class="section-heading text-uppercase">Odalarımız</h2>
             <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
         </div>
+       
         <div class="row">
+            @foreach (var item in Model)
+            {
             <div class="col-lg-4 col-sm-6 mb-4">
                 <!-- Portfolio item 1-->
                 <div class="portfolio-item">
-                    <a class="portfolio-link" data-bs-toggle="modal" href="#portfolioModal1">
+                    @* <a class="portfolio-link" data-bs-toggle="modal" href="#portfolioModal1">
                         <div class="portfolio-hover">
                             <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
                         </div>
+                        
+                    </a> *@
                         <img class="img-fluid" src="assets/img/portfolio/1.jpg" alt="..." />
-                    </a>
                     <div class="portfolio-caption">
-                        <div class="portfolio-caption-heading">Threads</div>
-                        <div class="portfolio-caption-subheading text-muted">Illustration</div>
+                        <div class="portfolio-caption-heading">@item.Title</div>
+                        <div class="portfolio-caption-subheading text-muted">@item.Description</div>
+                            <div class="portfolio-caption-subheading text-muted">Yatak Sayısı:@item.BedCount Banyo Sayısı: @item.BathCount</div>
+                            @if (item.Wifi == false)
+                            {
+                                <div class="portfolio-caption-subheading text-muted">Wifi Yok</div>
+                            }
+                            else
+                            {
+                                <div class="portfolio-caption-subheading text-muted">Wifi Var</div>
+                            }
+                            <div class="portfolio-caption-subheading text-muted">@item.Description</div>
+                            <div class="portfolio-caption-subheading text-muted">Ücret: @item.Price</div>
+
                     </div>
                 </div>
             </div>
-            <div class="col-lg-4 col-sm-6 mb-4">
+            @* <div class="col-lg-4 col-sm-6 mb-4">
                 <!-- Portfolio item 2-->
                 <div class="portfolio-item">
                     <a class="portfolio-link" data-bs-toggle="modal" href="#portfolioModal2">
@@ -100,8 +116,11 @@
                         <div class="portfolio-caption-subheading text-muted">Photography</div>
                     </div>
                 </div>
+            </div> *@
+
+            }
             </div>
-        </div>
+       
     </div>
-    }
+   
 </section>

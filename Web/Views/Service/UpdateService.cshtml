@@ -6,7 +6,7 @@
 @{
     Layout = "_Layout";
 }
-
+<div style="margin-top:15%">
 <form method="post" asp-action="UpdateService" asp-controller="Service" enctype="multipart/form-data">
     <div class="input-group flex-nowrap">
         <input type="hidden" class="form-control" value="@Model.Id" name="Id" id="Id" aria-label="Id">
@@ -23,3 +23,4 @@
 
     <button type="submit" class="btn btn-primary">Update</button>
 </form>
+</div>
